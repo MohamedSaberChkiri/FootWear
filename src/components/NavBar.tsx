@@ -28,6 +28,7 @@ import {
     DialogTrigger,
   } from "@/components/ui/dialog"
 import LoginForm from "./LoginForm"
+import TextField from "@mui/material/TextField"
   
 
 
@@ -70,7 +71,18 @@ function NavBar(){
                 </div>
 
                 <div className="flex items-center justify-around w-40 h-12 ">
-                   <IoSearchOutline className="text-2xl cursor-pointer"/>
+                <Dialog>
+                        <DialogTrigger><IoSearchOutline className="text-2xl cursor-pointer"/></DialogTrigger>
+                        <DialogContent className="w-full h-fit bg-transparent border-none shadow-none">
+                            <DialogHeader>
+                           
+                            <DialogDescription className="w-full">
+                              <input type="text" className="w-full text-white text-2xl border-b border-b-white outline-none bg-transparent pb-[20px] " placeholder="Search Products" />
+                            </DialogDescription>
+                            </DialogHeader>
+                        </DialogContent>
+                    </Dialog>
+                   
                    <TemporaryDrawer/>
                    
                    <Dialog>

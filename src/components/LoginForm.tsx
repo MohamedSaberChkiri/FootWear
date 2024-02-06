@@ -13,6 +13,8 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 
+
+
 // Define InputAdornments as a separate component
 function InputAdornments() {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -62,7 +64,12 @@ const LoginForm = () => {
     </div>
     <div className='flex flex-col items-start w-[300px] mt-[30px]'>
         <p className='text-gray hover:text-black cursor-pointer'>CREATE ACCOUNT</p>
-        <p className='text-gray hover:text-black cursor-pointer'>FORGOT PASSWORD</p>
+        <p className='text-gray hover:text-black cursor-pointer'>
+
+
+                 Forgot Password
+
+        </p>
         
     </div>
     

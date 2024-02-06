@@ -10,6 +10,7 @@
   font-family: 'Poor Story', system-ui;
   font-weight: bolder;
 }
+
 @layer base {
   :root {
     --background: 0 0% 100%;
