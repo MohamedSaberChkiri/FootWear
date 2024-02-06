@@ -32,17 +32,17 @@ export default function TemporaryDrawer() {
 
   const list = (anchor: Anchor) => (
     <Box
-      sx={{ width: 350 }}
+      sx={{ width: 350 , padding : 5}}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
-            first list
+      <List className='text-black font-bold'>
+            YOUR CART
       </List>
-      <Divider />
-      <List>
-            second list
+      <Divider className='mt-[30px]'/>
+      <List className='flex flex-col items-center font-bold text-2xl mt-[20px]'>
+            CART EMPTY
       </List>
     </Box>
   );
