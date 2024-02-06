@@ -7,6 +7,7 @@ import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import { IoCartOutline } from 'react-icons/io5';
+import  Badge  from '@mui/material/Badge';
 
 type Anchor = 'right'
 
@@ -50,7 +51,10 @@ export default function TemporaryDrawer() {
     <div>
       {(['right'] as const).map((anchor) => (
         <React.Fragment key={anchor}>
-          <IoCartOutline onClick={toggleDrawer(anchor, true)} className="text-2xl cursor-pointer"/>
+            <Badge badgeContent={1} color='success'>
+                <IoCartOutline onClick={toggleDrawer(anchor, true)} className="text-2xl cursor-pointer"/>
+            </Badge>
+          
           <Drawer
             anchor={anchor}
             open={state[anchor]}
