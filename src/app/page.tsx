@@ -1,6 +1,7 @@
 import Benifits from "@/components/Benifits";
 import CategoriesGrid from "@/components/CategoriesGrid";
 import FlashSale from "@/components/FlashSale";
+import Footer from "@/components/Footer";
 import HomeItems from "@/components/Home";
 import HomeBrowser from "@/components/HomeBrowser";
 import HomeFeaturedItemsContainer from "@/components/HomeFeaturedItemsContainer";
@@ -25,6 +26,7 @@ export default function Home() {
     <FlashSale/>
     <Reviews/>
     <Benifits/>
+    <Footer/>
     
     </>
   );

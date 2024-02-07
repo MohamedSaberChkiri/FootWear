@@ -5,7 +5,7 @@ import { RiCustomerService2Fill } from "react-icons/ri";
 
 export default function Benifits(){
     return (
-        <div className="min-h-[25vh] flex flex-wrap items-center justify-center gap-[10vh] text-white bg-black w-full">
+        <div className="min-h-[25vh] flex flex-wrap items-center justify-center gap-[10vh] text-white bg-black w-full py-[3vh]">
             <div className=" flex items-center justify-around text-4xl w-[250px]">FootWear</div>
 
                             <div className="flex items-center justify-around w-[250px]">
