@@ -28,7 +28,8 @@ import {
     DialogTrigger,
   } from "@/components/ui/dialog"
 import LoginForm from "./LoginForm"
-import TextField from "@mui/material/TextField"
+import {GiHamburgerMenu} from 'react-icons/gi'
+
   
 
 
@@ -47,7 +48,7 @@ function NavBar(){
 
                 <div className="text-4xl logo">FootWear</div>
 
-                <div>
+                <div className="hidden sm:flex">
                 <Menubar className="border-none text-white bg-black">
                     <MenubarMenu >
                        <MenubarTrigger>New Arrivals </MenubarTrigger>
@@ -70,7 +71,7 @@ function NavBar(){
 
                 </div>
 
-                <div className="flex items-center justify-around w-40 h-12 ">
+                <div className="hidden sm:flex items-center justify-around w-40 h-12 ">
                 <Dialog>
                         <DialogTrigger><IoSearchOutline className="text-2xl cursor-pointer"/></DialogTrigger>
                         <DialogContent className="w-full h-fit bg-transparent border-none shadow-none">
@@ -97,6 +98,9 @@ function NavBar(){
                         </DialogContent>
                     </Dialog>
 
+                </div>
+                <div className="flex sm:hidden">
+                <GiHamburgerMenu className="text-4xl"/>
                 </div>
 
 
