@@ -1,4 +1,6 @@
+import CategoriesGrid from "@/components/CategoriesGrid";
 import HomeItems from "@/components/Home";
+import HomeBrowser from "@/components/HomeBrowser";
 import HomeFeaturedItemsContainer from "@/components/HomeFeaturedItemsContainer";
 import NavBar from "@/components/NavBar";
 import TextTitle from "@/components/TextTitle";
@@ -13,6 +15,8 @@ export default function Home() {
       Title="NEW ARRIVALS"
       description="Be the first to discover the latest trends! Browse through our newest arrivals featuring the hottest styles in clothing and accessories. Find your favorites before they're gone"/>
     <HomeFeaturedItemsContainer/>
+    <CategoriesGrid/>
+    <HomeBrowser/>
     
     </>
   );
