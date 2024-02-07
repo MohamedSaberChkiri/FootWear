@@ -10,7 +10,11 @@
   font-family: 'Poor Story', system-ui;
   font-weight: bolder;
 }
-
+.sneaker{
+  background-image: url('../components/sources/homeSneaker.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 @layer base {
   :root {
     --background: 0 0% 100%;
