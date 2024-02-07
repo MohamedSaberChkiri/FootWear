@@ -16,7 +16,7 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-.men-sneaker-col,.woman-sneaker-col,.kids-sneaker-col,.main-sneaker, .new-sneaker-col{
+.men-sneaker-col,.woman-sneaker-col,.kids-sneaker-col,.main-sneaker, .new-sneaker-col,.storydiv{
   background-size: cover;
   
   background-position: center;
@@ -30,7 +30,8 @@
 .woman-sneaker-col{background-image: url('../components/sources/women-sneaker-col.jpg');}
 .kids-sneaker-col{background-image: url('../components/sources/kids-sneaker-col.jpg');}
 .new-sneaker-col{background-image: url('../components/sources/new-sneaker-col.jpg');} 
-
+.storydiv{background-image: url('../components/sources/StoryImage.jpg');
+background-blend-mode: darken;}
 @layer base {
   :root {
     --background: 0 0% 100%;

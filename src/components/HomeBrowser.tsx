@@ -26,7 +26,7 @@ export default function HomeBrowser(){
 
     return(
         <div className="mt-[100px] mb-[100px] mx-auto w-full flex flex-col">
-            <div className="w-fit h-[4vh] flex items-center justify-center w-full gap-4">
+            <div className="w-fit h-[4vh] flex items-center justify-center flex-wrap w-full gap-4">
                 <Button variant="ghost" onClick={() => handleCategoryClick('all')}>All</Button>
                 <Button variant="ghost" onClick={() => handleCategoryClick('men')}>Men</Button>
                 <Button variant="ghost" onClick={() => handleCategoryClick('women')}>Women</Button>

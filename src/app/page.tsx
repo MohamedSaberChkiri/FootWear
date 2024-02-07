@@ -1,8 +1,12 @@
+import Benifits from "@/components/Benifits";
 import CategoriesGrid from "@/components/CategoriesGrid";
+import FlashSale from "@/components/FlashSale";
 import HomeItems from "@/components/Home";
 import HomeBrowser from "@/components/HomeBrowser";
 import HomeFeaturedItemsContainer from "@/components/HomeFeaturedItemsContainer";
 import NavBar from "@/components/NavBar";
+import Reviews from "@/components/Reviews";
+import StoryView from "@/components/StoryView";
 import TextTitle from "@/components/TextTitle";
 
 
@@ -17,6 +21,10 @@ export default function Home() {
     <HomeFeaturedItemsContainer/>
     <CategoriesGrid/>
     <HomeBrowser/>
+    <StoryView/>
+    <FlashSale/>
+    <Reviews/>
+    <Benifits/>
     
     </>
   );
