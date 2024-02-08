@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 
-import "./globals.css";
-import NavBar from "@/components/NavBar";
-import Footer from "@/components/Footer";
+import "../globals.css";
+
+import LayoutTop from "@/components/LayoutTop";
+
 
 
 
@@ -17,12 +18,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="overflow-x-none">
-      <NavBar/>
+    <div>
+      
+       
+      <LayoutTop/>
         {children}
-        <Footer/>
-        </body>
-    </html>
+    
+       
+    </div>
   );
 }

@@ -1,11 +1,11 @@
 import Benifits from "@/components/Benifits";
 import CategoriesGrid from "@/components/CategoriesGrid";
 import FlashSale from "@/components/FlashSale";
-import Footer from "@/components/Footer";
+
 import HomeItems from "@/components/Home";
 import HomeBrowser from "@/components/HomeBrowser";
 import HomeFeaturedItemsContainer from "@/components/HomeFeaturedItemsContainer";
-import NavBar from "@/components/NavBar";
+
 import Reviews from "@/components/Reviews";
 import StoryView from "@/components/StoryView";
 import TextTitle from "@/components/TextTitle";
@@ -14,7 +14,7 @@ import TextTitle from "@/components/TextTitle";
 export default function Home() {
   return (
     <>
-      <NavBar/>
+      
       <HomeItems/>
       <TextTitle preTitle="FRESH PICKS JUST FOR YOU"
       Title="NEW ARRIVALS"
@@ -26,7 +26,7 @@ export default function Home() {
     <FlashSale/>
     <Reviews/>
     <Benifits/>
-    <Footer/>
+    
     
     </>
   );

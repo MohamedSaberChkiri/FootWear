@@ -32,6 +32,9 @@
 .new-sneaker-col{background-image: url('../components/sources/new-sneaker-col.jpg');} 
 .storydiv{background-image: url('../components/sources/StoryImage.jpg');
 background-blend-mode: darken;}
+
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;

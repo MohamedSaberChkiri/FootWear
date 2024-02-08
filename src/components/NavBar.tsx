@@ -15,6 +15,7 @@ import {
     MenubarTrigger,
   } from "@/components/ui/menubar"
 import { IoIosArrowDown, IoMdPerson } from "react-icons/io"
+import { IoCartOutline } from 'react-icons/io5';
 import { IoSearchOutline } from "react-icons/io5"
 import '../app/globals.css'
 import TemporaryDrawer from "./Drawer"
@@ -29,9 +30,10 @@ import {
   } from "@/components/ui/dialog"
 import LoginForm from "./LoginForm"
 import {GiHamburgerMenu} from 'react-icons/gi'
+import React from "react";
+import ReviewCard from "./ReviewCard";
 
   
-
 
 
 
@@ -84,7 +86,7 @@ function NavBar(){
                         </DialogContent>
                     </Dialog>
                    
-                   <TemporaryDrawer/>
+                   <TemporaryDrawer title="YOUR CART" badgeContent={1} opener={<IoCartOutline className="text-2xl cursor-pointer" />} contente="Your Cart Is Empty"/>
                    
                    <Dialog>
                         <DialogTrigger><IoMdPerson  className="text-2xl cursor-pointer"/></DialogTrigger>
@@ -99,8 +101,9 @@ function NavBar(){
                     </Dialog>
 
                 </div>
-                <div className="flex sm:hidden">
-                <GiHamburgerMenu className="text-4xl"/>
+                <div className="flex sm:hidden cursor-pointer">
+                <TemporaryDrawer title="FootWear" badgeContent={0} opener={<GiHamburgerMenu className="text-4xl"/>} contente="here goes the buttons"/>
+                
                 </div>
 
 

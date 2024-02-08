@@ -6,12 +6,17 @@ import Drawer from '@mui/material/Drawer';
 
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
-import { IoCartOutline } from 'react-icons/io5';
+
 import  Badge  from '@mui/material/Badge';
 
 type Anchor = 'right'
 
-export default function TemporaryDrawer() {
+export default function TemporaryDrawer( props : {
+  title : string,
+  opener : React.ReactNode,
+  contente : string,
+  badgeContent: number
+}) {
   const [state, setState] = React.useState({
     right: false,
   });
@@ -38,11 +43,11 @@ export default function TemporaryDrawer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List className='text-black font-bold'>
-            YOUR CART
+            {props.title}
       </List>
       <Divider className='mt-[30px]'/>
       <List className='flex flex-col items-center font-bold text-2xl mt-[20px]'>
-            CART EMPTY
+            {props.contente}
       </List>
     </Box>
   );
@@ -51,8 +56,8 @@ export default function TemporaryDrawer() {
     <div>
       {(['right'] as const).map((anchor) => (
         <React.Fragment key={anchor}>
-            <Badge badgeContent={1} color='success'>
-                <IoCartOutline onClick={toggleDrawer(anchor, true)} className="text-2xl cursor-pointer"/>
+            <Badge badgeContent={props.badgeContent} color='success'>
+                <div onClick={toggleDrawer(anchor, true)}>{props.opener}</div>
             </Badge>
           
           <Drawer
