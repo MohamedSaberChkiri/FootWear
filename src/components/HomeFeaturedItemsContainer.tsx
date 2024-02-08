@@ -16,6 +16,7 @@ const HomeFeaturedItemsContainer: React.FC = () => {
                     subTitle={`Sneakers / ${product.manufacturer}`}
                     price={product.price}
                     image={product.backgroundLink}
+                    productId={product.id}
                 />
             ))}
         </div>

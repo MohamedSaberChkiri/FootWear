@@ -27,7 +27,7 @@ export default function HomeBrowser(){
 
             <div className="flex flex-wrap w-fit h-fit gap-6 items-center justify-around mx-auto mt-12 max-w-[1000px]">
                 {filteredItems.map((item, index) => (
-                    <ItemCard key={index} title={item.name} subTitle={`Sneakers / ${item.manufacturer}`} price={item.price} image={item.backgroundLink} />
+                    <ItemCard key={index} title={item.name} subTitle={`Sneakers / ${item.manufacturer}`} price={item.price} image={item.backgroundLink} productId={item.id.toString()} />
                 ))}
             </div>
           

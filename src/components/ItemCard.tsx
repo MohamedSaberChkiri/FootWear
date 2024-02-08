@@ -1,16 +1,19 @@
+import Link from "next/link";
 import {FaArrowCircleRight} from "react-icons/fa"
 
 export default function ItemCard(props: {
     title : string,
     subTitle : string,
     price : number,
-    image: string
+    image: string,
+    productId : string
    
 }){
    
 
     const ProductImage = props.image;
     return (
+        <Link href={`/${props.productId}`}>
         <div className='w-[295px] h-[475px] border-2 flex flex-col items-start justify-around p-[35px] cursor-pointer mt-[1rem]'>
             <img className="w-[220px] h-[250px]" src={ProductImage}/>
             <div>
@@ -24,5 +27,6 @@ export default function ItemCard(props: {
             </div>
             
         </div>
+        </Link>
     )
 }
