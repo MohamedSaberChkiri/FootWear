@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "../globals.css";
 
 import LayoutTop from "@/components/LayoutTop";
+import { CartProvider } from "@/contexts/CartContext";
 
 
 
@@ -22,8 +23,9 @@ export default function RootLayout({
       
        
       <LayoutTop/>
+      <CartProvider>
         {children}
-    
+        </CartProvider>
        
     </div>
   );

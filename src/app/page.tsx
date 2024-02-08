@@ -1,7 +1,7 @@
 import Benifits from "@/components/Benifits";
 import CategoriesGrid from "@/components/CategoriesGrid";
 import FlashSale from "@/components/FlashSale";
-
+import { CartProvider } from "@/contexts/CartContext";
 import HomeItems from "@/components/Home";
 import HomeBrowser from "@/components/HomeBrowser";
 import HomeFeaturedItemsContainer from "@/components/HomeFeaturedItemsContainer";
@@ -14,7 +14,7 @@ import TextTitle from "@/components/TextTitle";
 export default function Home() {
   return (
     <>
-      
+      <CartProvider>
       <HomeItems/>
       <TextTitle preTitle="FRESH PICKS JUST FOR YOU"
       Title="NEW ARRIVALS"
@@ -26,6 +26,7 @@ export default function Home() {
     <FlashSale/>
     <Reviews/>
     <Benifits/>
+    </CartProvider>
     
     
     </>
