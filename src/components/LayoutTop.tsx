@@ -8,7 +8,7 @@ export default function LayoutTop(){
 
             <div className="flex flex-col items-start justify-center text-start text-white z-20 my-[10%] gap-6">
                 <p className="font-bold text-5xl">SHOP</p>
-                <div className="flex items-center justify-around gap-4 text-gray-300"> <div>YOU ARE HERE :</div> <CustomSeparator/></div>
+                <div className="flex flex-wrap items-center justify-around gap-4 text-gray-300"> <div>YOU ARE HERE :</div> <CustomSeparator/></div>
             </div>
 
            

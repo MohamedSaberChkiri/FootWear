@@ -17,7 +17,7 @@ export default function ItemInfo(
     }
 ){
 
-    const backGround = 'url("https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b01c67f2-2481-45d7-b383-a1476d768f6e/air-force-1-07-damenschuh-dgr2tk.png")'
+    const backGround = 'url("https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/395205/12/sv01/fnd/EEA/fmt/png/Suede-XL-Sneakers-Unisex")'
     const [Con, setCon] = useState<number>(1)
     const AddCon =()=>{
         if(Con < 10){
