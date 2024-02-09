@@ -7,7 +7,7 @@ import Divider from '@mui/material/Divider';
 import { useParams } from "next/navigation";
 
 import products from '../../data/Shoes';
-import { CartProvider, useCart } from "@/contexts/CartContext";
+import { useCart } from "@/contexts/CartContext";
 
 
 
@@ -15,13 +15,18 @@ import { CartProvider, useCart } from "@/contexts/CartContext";
 
 export default function ItemInfo(){
     const { addToCart } = useCart();
+
+
+
+
  const productId = useParams()
  const product = products.find((product) => product.id === productId.productId);
 
     
     if (!product) {
-        return <div>Product not found</div>;
+        return (console.log("product not found"));
       }
+
 
     const [Con, setCon] = useState<number>(1)
     const AddCon =()=>{
@@ -37,7 +42,7 @@ export default function ItemInfo(){
         }
     }
     return(
-        <CartProvider>
+      
         <div>
             
             <div className="flex flex-wrap items-center justify-center my-[3vh] gap-4">
@@ -79,6 +84,6 @@ export default function ItemInfo(){
 
 
         </div>
-        </CartProvider>
+       
     )
 }

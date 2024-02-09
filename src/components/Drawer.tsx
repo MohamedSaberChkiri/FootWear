@@ -14,8 +14,9 @@ type Anchor = 'right'
 export default function TemporaryDrawer( props : {
   title : string,
   opener : React.ReactNode,
-  contente : string,
+  contente : React.ReactNode,
   badgeContent: number
+
 }) {
   const [state, setState] = React.useState({
     right: false,
@@ -37,7 +38,7 @@ export default function TemporaryDrawer( props : {
 
   const list = (anchor: Anchor) => (
     <Box
-      sx={{ width: 350 , padding : 5}}
+      className ="flex flex-col items-center justify-around h-full w-[350px] p-[10px] "
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
@@ -46,7 +47,7 @@ export default function TemporaryDrawer( props : {
             {props.title}
       </List>
       <Divider className='mt-[30px]'/>
-      <List className='flex flex-col items-center font-bold text-2xl mt-[20px]'>
+      <List className='flex flex-col items-center h-full mt-[20px]'>
             {props.contente}
       </List>
     </Box>

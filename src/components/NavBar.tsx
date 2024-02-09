@@ -1,17 +1,10 @@
 
 import {
     Menubar,
-    MenubarCheckboxItem,
     MenubarContent,
     MenubarItem,
     MenubarMenu,
-    MenubarRadioGroup,
-    MenubarRadioItem,
-    MenubarSeparator,
     MenubarShortcut,
-    MenubarSub,
-    MenubarSubContent,
-    MenubarSubTrigger,
     MenubarTrigger,
   } from "@/components/ui/menubar"
 import { IoIosArrowDown, IoMdPerson } from "react-icons/io"
@@ -31,7 +24,8 @@ import {
 import LoginForm from "./LoginForm"
 import {GiHamburgerMenu} from 'react-icons/gi'
 import React from "react";
-import ReviewCard from "./ReviewCard";
+
+import CartPage from "./CartProducts";
 
   
 
@@ -86,7 +80,7 @@ function NavBar(){
                         </DialogContent>
                     </Dialog>
                    
-                   <TemporaryDrawer title="YOUR CART" badgeContent={1} opener={<IoCartOutline className="text-2xl cursor-pointer" />} contente="Your Cart Is Empty"/>
+                   <TemporaryDrawer title="YOUR CART" badgeContent={1} opener={<IoCartOutline className="text-2xl cursor-pointer" />} contente={<CartPage/>}/>
                    
                    <Dialog>
                         <DialogTrigger><IoMdPerson  className="text-2xl cursor-pointer"/></DialogTrigger>

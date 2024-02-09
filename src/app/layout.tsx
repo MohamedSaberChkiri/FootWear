@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import { CartProvider } from "@/contexts/CartContext";
 
 
 
@@ -19,9 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="overflow-x-none">
+        <CartProvider>
       <NavBar/>
         {children}
         <Footer/>
+        </CartProvider>
         </body>
     </html>
   );

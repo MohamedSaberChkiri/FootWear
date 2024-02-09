@@ -1,71 +1,74 @@
 "use client"
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, PropsWithChildren, useEffect } from 'react';
 
-// Define types
-type Product = {
-    id: string;
-    name: string;
-    price: number;
-    backgroundLink : string;
-};
+interface Product {
+  id: string;
+  name: string;
+  price: number;
+  backgroundLink: string;
+  manufacturer: string;
+  category: string;
+  currentStock: number;
+  description: string;
+}
 
-type CartItem = {
-    product: Product;
-    quantity: number;
-};
+interface CartItem extends Product {
+  quantity: number;
+}
 
-type CartContextType = {
-    cart: CartItem[];
-    addToCart: (product: Product) => void;
-    removeFromCart: (productId: string) => void;
-    clearCart: () => void;
-};
+interface CartContextType {
+  cart: CartItem[];
+  addToCart: (product: Product) => void;
+  removeFromCart: (productId: string) => void;
+}
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const useCart = () => {
-    const context = useContext(CartContext);
-    if (!context) {
-        throw new Error('useCart must be used within a CartProvider');
+  const context = useContext(CartContext);
+  if (!context) {
+    throw new Error('useCart must be used within a CartProvider');
+  }
+  return context;
+};
+
+export const CartProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
+  const [cart, setCart] = useState<CartItem[]>(() => {
+    if (typeof window !== 'undefined') { // Check if window object is defined (browser environment)
+      const savedCart = localStorage.getItem('cart');
+      return savedCart ? JSON.parse(savedCart) : [];
     }
-    return context;
-};
+    return [];
+  });
 
-type CartProviderProps = {
-    children: ReactNode;
-};
+  const addToCart = (product: Product) => {
+    const existingItemIndex = cart.findIndex(item => item.id === product.id);
 
-export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
-    const [cart, setCart] = useState<CartItem[]>([]);
+    if (existingItemIndex !== -1) {
+      const updatedCart = [...cart];
+      updatedCart[existingItemIndex].quantity++;
+      setCart(updatedCart);
+    } else {
+      const updatedCart = [...cart, { ...product, quantity: 1 }];
+      setCart(updatedCart);
+    }
+  };
 
-    const addToCart = (product: Product) => {
-        // Check if product is already in cart
-        const existingItem = cart.find(item => item.product.id === product.id);
-        if (existingItem) {
-            setCart(cart.map(item => 
-                item.product.id === product.id
-                ? { ...item, quantity: item.quantity + 1 }
-                : item
-            ));
-            console.log('item exists')
-        } else {
-            setCart([...cart, { product, quantity: 1 }]);
-            console.log('item added successfully')
-        }
-    };
+  const removeFromCart = (productId: string) => {
+    const updatedCart = cart.filter(item => item.id !== productId);
+    setCart(updatedCart);
+  };
 
-    const removeFromCart = (productId: string) => {
-        setCart(cart.filter(item => item.product.id !== productId));
-        
-    };
+  // Update localStorage whenever cart changes
+  useEffect(() => {
+    if (typeof window !== 'undefined') { 
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  }, [cart]);
 
-    const clearCart = () => {
-        setCart([]);
-    };
-
-    return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
-            {children}
-        </CartContext.Provider>
-    );
+  return (
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+      {children}
+    </CartContext.Provider>
+  );
 };
