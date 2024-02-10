@@ -32,7 +32,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="overflow-x-none">
         <CartProvider>
-      <NavBar/>
+      <NavBar navStyle=""/>
         {children}
 
        

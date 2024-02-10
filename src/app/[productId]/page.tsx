@@ -1,14 +1,15 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Rating } from "@mui/material"
+import { Rating} from "@mui/material"
 import { useState } from "react"
 import Divider from '@mui/material/Divider';
 import { useParams } from "next/navigation";
 
 import products from '../../data/Shoes';
 import { useCart } from "@/contexts/CartContext";
-
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 
 
 
@@ -24,10 +25,28 @@ export default function ItemInfo(){
    
 
 
-   
+         const [Con, setCon] = useState<number>(1)
+         const AddCon =()=>{
+             if(Con < 10){
+                 setCon(Con +1)
+                 
+             }
+         }
+         const RmCon= ()=>{
+             if(Con > 1){
+                 setCon(Con -1)
+                 
+             }else{
+                 setCon(1)
+                 
+             }
+         }
+     
 
     const handleClick = () => {
-        addToCart(product)
+        
+        addToCart(product, Con)
+        setOpen(true);
  
     };
   
@@ -44,24 +63,33 @@ export default function ItemInfo(){
 
 
 
-    const [Con, setCon] = useState<number>(1)
-    const AddCon =()=>{
-        if(Con < 10){
-            setCon(Con +1)
-        }
-    }
-    const RmCon= ()=>{
-        if(Con > 1){
-            setCon(Con -1)
-        }else{
-            setCon(1)
-        }
-    }
+ 
+
+   const [open, setOpen] = useState(false);
+
+      
+ 
+  
+    const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+      if (reason === 'clickaway') {
+        return;
+      }
+  
+      setOpen(false);
+    };
+  
+
+
+
     return(
       
         <div>
-           
-            
+               
+                <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+                        <Alert severity="success" variant="filled" sx={{ width: '100%' }}>Item Added To Cart</Alert>
+                </Snackbar>
+              
+                
             <div className="flex flex-wrap items-center justify-center my-[3vh] gap-4">
 
                 <img src={product.backgroundLink} className="w-[40rem] h-[40rem]"></img>

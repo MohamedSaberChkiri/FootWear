@@ -17,15 +17,18 @@ interface Product {
   category: string;
   currentStock: number;
   description: string;
+  quantity : number;
+ 
 }
 
 interface CartItem extends Product {
   quantity: number;
+  
 }
 
 interface CartContextType {
   cart: CartItem[];
-  addToCart: (product: Product) => void;
+  addToCart: (product: Product, Con : number) => void;
   removeFromCart: (productId: string) => void;
   
 }
@@ -52,7 +55,7 @@ export const CartProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
     return [];
   });
 
-  const addToCart = (product: Product) => {
+  const addToCart = (product: Product, Con : number) => {
     const existingItemIndex = cart.findIndex(item => item.id === product.id);
 
     if (existingItemIndex !== -1) {
@@ -63,7 +66,7 @@ export const CartProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
    
 
     } else {
-      const updatedCart = [...cart, { ...product, quantity: 1 }];
+      const updatedCart = [...cart, { ...product, quantity: Con }];
       setCart(updatedCart);
        
         

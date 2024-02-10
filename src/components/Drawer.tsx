@@ -1,55 +1,47 @@
 "use client"
-
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
+import Badge from '@mui/material/Badge';
 
-import  Badge  from '@mui/material/Badge';
 
-type Anchor = 'right'
+type Anchor = 'right';
 
-export default function TemporaryDrawer( props : {
-  title : string,
-  opener : React.ReactNode,
-  contente : React.ReactNode,
-  badgeContent: number
-
+export default function TemporaryDrawer(props: {
+  title: string;
+  opener: React.ReactNode;
+  contente: React.ReactNode;
+  badgeContent: number;
+ 
+  
 }) {
   const [state, setState] = React.useState({
-    right: false,
+    right: false ,
   });
 
-  const toggleDrawer =
-    (anchor: Anchor, open: boolean) =>
-    (event: React.KeyboardEvent | React.MouseEvent) => {
-      if (
-        event.type === 'keydown' &&
-        ((event as React.KeyboardEvent).key === 'Tab' ||
-          (event as React.KeyboardEvent).key === 'Shift')
-      ) {
-        return;
-      }
+  const handleOpen = () => {
+    setState({ ...state, right: true });
+  };
 
-      setState({ ...state, [anchor]: open });
-    };
+  const handleClose = () => {
+    setState({ ...state, right: false});
+  };
+
+  const handleClickInsideDrawer = (event: React.MouseEvent) => {
+    event.stopPropagation(); // Prevent closing the drawer when clicking inside
+  };
 
   const list = (anchor: Anchor) => (
     <Box
-      className ="flex flex-col items-center justify-around h-full w-[350px] p-[10px] "
+      className="flex flex-col items-center justify-around h-full w-[350px] p-[10px] "
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
+      onClick={handleClickInsideDrawer}
     >
-      <List className='text-black font-bold'>
-            {props.title}
-      </List>
-      <Divider className='mt-[30px]'/>
-      <List className='flex flex-col items-center h-full mt-[20px]'>
-            {props.contente}
-      </List>
+      <List className="text-black font-bold">{props.title}</List>
+      <Divider className="mt-[30px]" />
+      <List className="flex flex-col items-center h-full mt-[20px]">{props.contente}</List>
     </Box>
   );
 
@@ -57,14 +49,14 @@ export default function TemporaryDrawer( props : {
     <div>
       {(['right'] as const).map((anchor) => (
         <React.Fragment key={anchor}>
-            <Badge badgeContent={props.badgeContent} color='success'>
-                <div onClick={toggleDrawer(anchor, true)}>{props.opener}</div>
-            </Badge>
-          
+          <Badge badgeContent={props.badgeContent} color="success">
+            <div onClick={handleOpen}>{props.opener}</div>
+          </Badge>
+
           <Drawer
             anchor={anchor}
             open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
+            onClose={handleClose}
           >
             {list(anchor)}
           </Drawer>

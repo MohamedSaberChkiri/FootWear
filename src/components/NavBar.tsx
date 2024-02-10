@@ -1,4 +1,4 @@
-
+"use client"
 import {
     Menubar,
     MenubarContent,
@@ -23,23 +23,35 @@ import {
   } from "@/components/ui/dialog"
 import LoginForm from "./LoginForm"
 import {GiHamburgerMenu} from 'react-icons/gi'
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import CartPage from "./CartProducts";
+import { cn } from "@/lib/utils";
+import MobileNav from "./MobileNav";
+
 
   
 
 
 
 
-function NavBar(){
+function NavBar(props : {navStyle: string}){
 
-    
+    const [productsCount, setProductsCount] = useState(0);
+
+    useEffect(() => {
+      const cartData = localStorage.getItem('cart');
+      if (cartData) {
+        const parsedCartItems = JSON.parse(cartData);
+        const itemCount = parsedCartItems.length; // Count the number of items in the cart
+        setProductsCount(itemCount);
+      }
+    }, []);
 
     
 
     return(
-        <div className="w-full h-24 flex items-center justify-around bg-black text-white m-0 p-0">
+        <div className={cn("w-full h-24 flex items-center justify-around bg-black text-white ", props.navStyle)}>
 
 
                 <div className="text-4xl logo">FootWear</div>
@@ -80,7 +92,7 @@ function NavBar(){
                         </DialogContent>
                     </Dialog>
                    
-                   <TemporaryDrawer title="YOUR CART" badgeContent={1} opener={<IoCartOutline className="text-2xl cursor-pointer" />} contente={<CartPage/>}/>
+                   <TemporaryDrawer title="YOUR CART" badgeContent={productsCount} opener={<IoCartOutline className="text-2xl cursor-pointer" />} contente={<CartPage/>} />
                    
                    <Dialog>
                         <DialogTrigger><IoMdPerson  className="text-2xl cursor-pointer"/></DialogTrigger>
@@ -96,7 +108,7 @@ function NavBar(){
 
                 </div>
                 <div className="flex sm:hidden cursor-pointer">
-                <TemporaryDrawer title="FootWear" badgeContent={0} opener={<GiHamburgerMenu className="text-4xl"/>} contente="here goes the buttons"/>
+                <TemporaryDrawer title="" badgeContent={0} opener={<GiHamburgerMenu className="text-4xl"/>} contente={<MobileNav/>} />
                 
                 </div>
 

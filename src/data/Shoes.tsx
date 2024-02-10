@@ -9,12 +9,14 @@ interface Product {
     currentStock: number;
     description: string;
     backgroundLink: string;
+    quantity : number;
 }
 
 const products: Product[] = [
     {
         id: "1",
         name: "Gazelle Shoes",
+       quantity : 0,
         price: 99.99,
         manufacturer: "Adidas",
         category: "Men",
@@ -26,6 +28,7 @@ const products: Product[] = [
         id: "2",
         name: "NMD_R1 Shoes",
         price: 129.99,
+       quantity : 0,
         manufacturer: "Adidas",
         category: "Men",
         currentStock: 30,
@@ -35,6 +38,7 @@ const products: Product[] = [
     {
         id: "3",
         name: "Adistar Cushion Shoes",
+       quantity : 0,
         price: 89.99,
         manufacturer: "Adidas",
         category: "Men",
@@ -45,6 +49,7 @@ const products: Product[] = [
     {
         id: "4",
         name: "OZWEEGO Shoes",
+       quantity : 0,
         price: 109.99,
         manufacturer: "Adidas",
         category: "Men",
@@ -56,6 +61,7 @@ const products: Product[] = [
         id: "5",
         name: "Lite Racer 3.0 Shoes",
         price: 79.99,
+       quantity : 0,
         manufacturer: "Adidas",
         category: "Men",
         currentStock: 35,
@@ -66,6 +72,7 @@ const products: Product[] = [
     {
         id: "6",
         name: "Nike Dunk Low",
+       quantity : 0,
         price: 119.99,
         manufacturer: "Nike",
         category: "Women",
@@ -78,6 +85,7 @@ const products: Product[] = [
         id: "7",
         name: "Nike Air Force 1 '07",
         price: 119.99,
+       quantity : 0,
         manufacturer: "Nike",
         category: "Women",
         currentStock: 18,
@@ -88,6 +96,7 @@ const products: Product[] = [
     {
         id: "8",
         name: "Air Jordan 1 Elevate High",
+       quantity : 0,
         price: 103.99,
         manufacturer: "Nike",
         category: "Women",
@@ -99,6 +108,7 @@ const products: Product[] = [
     {
         id: "9",
         name: "Jordan Spizike Low",
+       quantity : 0,
         price: 124.99,
         manufacturer: "Nike",
         category: "Kids",
@@ -110,6 +120,7 @@ const products: Product[] = [
     {
         id: "10",
         name: "Nike Dunk Low",
+       quantity : 0,
         price: 60,
         manufacturer: "Nike",
         category: "Kids",
@@ -122,6 +133,7 @@ const products: Product[] = [
     {
         id: "11",
         name: "Suede XL Sneakers Unisex",
+       quantity : 0,
         price: 99.99,
         manufacturer: "Puma",
         category: "New",
@@ -133,6 +145,7 @@ const products: Product[] = [
     {
         id: "12",
         name: "Softride Enzo Evo Running Shoes",
+       quantity : 0,
         price: 40,
         manufacturer: "Puma",
         category: "New",
@@ -145,6 +158,7 @@ const products: Product[] = [
         id: "13",
         name: "PUMA x SPONGEBOB SQUAREPANTS Slipstream Youth Sneakers",
         price: 49.99,
+       quantity : 0,
         manufacturer: "Puma",
         category: "New",
         currentStock: 100,

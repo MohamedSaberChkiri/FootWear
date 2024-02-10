@@ -14,7 +14,7 @@ import TextTitle from "@/components/TextTitle";
 export default function Home() {
   return (
     <>
-      <CartProvider>
+      <CartProvider >
       <HomeItems/>
       <TextTitle preTitle="FRESH PICKS JUST FOR YOU"
       Title="NEW ARRIVALS"
