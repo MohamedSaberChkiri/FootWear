@@ -14,18 +14,34 @@ import { useCart } from "@/contexts/CartContext";
 
 
 export default function ItemInfo(){
+    const productId = useParams()
+    const product = products.find((product) => product.id === productId.productId);
+   
+       
+       if (!product) {
+           return (console.log("product not found"));
+         }
+   
+
+
+   
+
+    const handleClick = () => {
+        addToCart(product)
+ 
+    };
+  
+  
+
+
+
+
+
     const { addToCart } = useCart();
 
 
 
 
- const productId = useParams()
- const product = products.find((product) => product.id === productId.productId);
-
-    
-    if (!product) {
-        return (console.log("product not found"));
-      }
 
 
     const [Con, setCon] = useState<number>(1)
@@ -44,6 +60,7 @@ export default function ItemInfo(){
     return(
       
         <div>
+           
             
             <div className="flex flex-wrap items-center justify-center my-[3vh] gap-4">
 
@@ -61,7 +78,7 @@ export default function ItemInfo(){
                                                 <div>{Con}</div>
                                                 <button onClick={AddCon}>+</button>
                                             </div>
-                                            <Button className="w-[150px] h-[5vh] rounded-none" onClick={() => addToCart(product)}>ADD TO CART</Button>
+                                            <Button className="w-[150px] h-[5vh] rounded-none" onClick={handleClick}>ADD TO CART</Button>
                                         </div>
                                         <div className="flex flex-col items-start text-[12px] justify-around">
                                             <p className="font-bold cursor-pointer">ASK A QUESTION ABOUT THIS PRODUCT</p>

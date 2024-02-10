@@ -1,6 +1,13 @@
 "use client"
 import React, { createContext, useContext, useState, PropsWithChildren, useEffect } from 'react';
 
+
+
+
+
+
+
+
 interface Product {
   id: string;
   name: string;
@@ -20,6 +27,7 @@ interface CartContextType {
   cart: CartItem[];
   addToCart: (product: Product) => void;
   removeFromCart: (productId: string) => void;
+  
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -32,7 +40,10 @@ export const useCart = () => {
   return context;
 };
 
+
+
 export const CartProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
+    
   const [cart, setCart] = useState<CartItem[]>(() => {
     if (typeof window !== 'undefined') { // Check if window object is defined (browser environment)
       const savedCart = localStorage.getItem('cart');
@@ -48,9 +59,16 @@ export const CartProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
       const updatedCart = [...cart];
       updatedCart[existingItemIndex].quantity++;
       setCart(updatedCart);
+
+   
+
     } else {
       const updatedCart = [...cart, { ...product, quantity: 1 }];
       setCart(updatedCart);
+       
+        
+
+ 
     }
   };
 
@@ -67,7 +85,7 @@ export const CartProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   }, [cart]);
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart}}>
       {children}
     </CartContext.Provider>
   );
