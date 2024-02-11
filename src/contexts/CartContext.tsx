@@ -30,6 +30,8 @@ interface CartContextType {
   cart: CartItem[];
   addToCart: (product: Product, Con : number) => void;
   removeFromCart: (productId: string) => void;
+
+  
   
 }
 
@@ -45,6 +47,7 @@ export const useCart = () => {
 
 
 
+
 export const CartProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
     
   const [cart, setCart] = useState<CartItem[]>(() => {
@@ -55,7 +58,12 @@ export const CartProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
     return [];
   });
 
+ 
   const addToCart = (product: Product, Con : number) => {
+
+
+
+
     const existingItemIndex = cart.findIndex(item => item.id === product.id);
 
     if (existingItemIndex !== -1) {
@@ -63,11 +71,17 @@ export const CartProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
       updatedCart[existingItemIndex].quantity++;
       setCart(updatedCart);
 
+  
+      
+
+
    
 
     } else {
       const updatedCart = [...cart, { ...product, quantity: Con }];
       setCart(updatedCart);
+
+   
        
         
 

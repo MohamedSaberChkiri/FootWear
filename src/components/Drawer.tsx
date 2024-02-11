@@ -5,6 +5,8 @@ import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import Badge from '@mui/material/Badge';
+import  Link  from 'next/link';
+import { Button } from './ui/button';
 
 
 type Anchor = 'right';
@@ -41,7 +43,17 @@ export default function TemporaryDrawer(props: {
     >
       <List className="text-black font-bold">{props.title}</List>
       <Divider className="mt-[30px]" />
-      <List className="flex flex-col items-center h-full mt-[20px]">{props.contente}</List>
+      <List className="flex flex-col items-center h-full mt-[20px]">
+        {props.contente}
+        <Link href='/cart'>
+          <Button>Go To Cart</Button>
+        </Link>
+        </List>
+      
+  
+        
+     
+      
     </Box>
   );
 

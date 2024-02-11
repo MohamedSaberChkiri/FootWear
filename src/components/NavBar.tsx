@@ -23,7 +23,7 @@ import {
   } from "@/components/ui/dialog"
 import LoginForm from "./LoginForm"
 import {GiHamburgerMenu} from 'react-icons/gi'
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import CartPage from "./CartProducts";
 import { cn } from "@/lib/utils";
@@ -37,17 +37,7 @@ import MobileNav from "./MobileNav";
 
 function NavBar(props : {navStyle: string}){
 
-    const [productsCount, setProductsCount] = useState(0);
-
-    useEffect(() => {
-      const cartData = localStorage.getItem('cart');
-      if (cartData) {
-        const parsedCartItems = JSON.parse(cartData);
-        const itemCount = parsedCartItems.length; // Count the number of items in the cart
-        setProductsCount(itemCount);
-      }
-    }, []);
-
+    
     
 
     return(
@@ -92,7 +82,7 @@ function NavBar(props : {navStyle: string}){
                         </DialogContent>
                     </Dialog>
                    
-                   <TemporaryDrawer title="YOUR CART" badgeContent={productsCount} opener={<IoCartOutline className="text-2xl cursor-pointer" />} contente={<CartPage/>} />
+                   <TemporaryDrawer title="YOUR CART" badgeContent={0} opener={<IoCartOutline className="text-2xl cursor-pointer" />} contente={<CartPage/>} />
                    
                    <Dialog>
                         <DialogTrigger><IoMdPerson  className="text-2xl cursor-pointer"/></DialogTrigger>

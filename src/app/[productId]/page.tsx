@@ -43,10 +43,12 @@ export default function ItemInfo(){
          }
      
 
-    const handleClick = () => {
+    const handleClick = async () => {
         
         addToCart(product, Con)
+      
         setOpen(true);
+
  
     };
   
