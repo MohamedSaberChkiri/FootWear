@@ -50,21 +50,25 @@ function NavBar(props : {navStyle: string}){
 
                 <div className="hidden sm:flex">
                 <Menubar className="border-none text-white bg-black">
+                    <Link href='/collections'>
                     <MenubarMenu >
                        <MenubarTrigger>New Arrivals </MenubarTrigger>
                     </MenubarMenu>
+                    </Link>
         <MenubarMenu>
             <MenubarTrigger>Shop <MenubarShortcut className="ml-[5px]"><IoIosArrowDown /></MenubarShortcut></MenubarTrigger>
             <MenubarContent>
-                <MenubarItem> Men </MenubarItem>
-                    <MenubarItem> Women </MenubarItem>
-                    <MenubarItem> Kids </MenubarItem>
-                    <MenubarItem>Sports </MenubarItem>
-                        <MenubarItem> Boots </MenubarItem>
+            <Link href='/collections'>  <MenubarItem> Men </MenubarItem>  </Link>
+            <Link href='/collections'>    <MenubarItem> Women </MenubarItem>  </Link>
+            <Link href='/collections'>   <MenubarItem> Kids </MenubarItem>  </Link>
+            <Link href='/collections'>   <MenubarItem>Sports </MenubarItem>  </Link>
+            <Link href='/collections'>     <MenubarItem> Boots </MenubarItem>  </Link>
             </MenubarContent>
         </MenubarMenu>
                 <MenubarMenu>
-                <MenubarTrigger>Contact Us</MenubarTrigger>
+
+
+             <Link href='/contact'>   <MenubarTrigger>Contact Us</MenubarTrigger> </Link>
                                                     
             </MenubarMenu>
     </Menubar>
