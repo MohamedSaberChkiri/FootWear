@@ -4,7 +4,7 @@ import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 
 export default function StoryView(){
     return (
-        <div className="relative w-full min-h-[40vh] h-fit p-4 flex flex-wrap items-center justify-center gap-12 mx-auto storydiv">
+        <div className="relative w-full min-h-[40vh] h-fit p-4 flex flex-wrap items-center justify-center gap-12 mx-auto mt-[10vh] storydiv">
 
             <div className="absolute inset-0 bg-black bg-opacity-70 z-10"></div>
 

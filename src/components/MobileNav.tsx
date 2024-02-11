@@ -1,11 +1,15 @@
+"use client"
 import React from 'react'
 import { Button } from './ui/button'
+
+
 
 
 function MobileNav() {
   return (
     <div className='flex flex-col gap-14 h-full'>
-        <div className='font-bold text-5xl'>FootWear</div>
+      
+        <div className='font-bold text-5xl cursor-pointer'>FootWear</div> 
         <div className='flex flex-col gap-4'>
             <Button className='rounded-none bg-black hover:bg-black text-white'>COLLECTIONS</Button>
             <Button className='rounded-none bg-black hover:bg-black text-white'>NEW ARRIVALS</Button>

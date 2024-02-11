@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Timer from "./Timer";
 import { Button } from "./ui/button";
 
@@ -8,7 +9,8 @@ export default function FlashSale(){
                 <div className="text-6xl w-[350px] flex items-center justify-center">FLASH <br />SALE</div>
                 <div className="text-6xl w-[350px] flex items-center justify-center">50% <br />OFF</div>
                 <div><Timer durationInDays={30} /></div>
-                <Button className="rounded-none w-[250px] h-[10vh] bg-white text-black hover:text-black hover:bg-slate-300	">SHOP NOW</Button>
+                <Link href='/collections'><Button className="rounded-none w-[250px] h-[10vh] bg-white text-black hover:text-black hover:bg-slate-300	">SHOP NOW</Button></Link>
+                
             </div>
     )
 }

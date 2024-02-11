@@ -6,7 +6,7 @@ import { useState } from "react"
 import Divider from '@mui/material/Divider';
 import { useParams } from "next/navigation";
 
-import products from '../../data/Shoes';
+import products from '../../../data/Shoes';
 import { useCart } from "@/contexts/CartContext";
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';

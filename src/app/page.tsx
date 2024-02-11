@@ -3,7 +3,7 @@ import CategoriesGrid from "@/components/CategoriesGrid";
 import FlashSale from "@/components/FlashSale";
 import { CartProvider } from "@/contexts/CartContext";
 import HomeItems from "@/components/Home";
-import HomeBrowser from "@/components/HomeBrowser";
+
 import HomeFeaturedItemsContainer from "@/components/HomeFeaturedItemsContainer";
 
 import Reviews from "@/components/Reviews";
@@ -21,7 +21,7 @@ export default function Home() {
       description="Be the first to discover the latest trends! Browse through our newest arrivals featuring the hottest styles in clothing and accessories. Find your favorites before they're gone"/>
     <HomeFeaturedItemsContainer/>
     <CategoriesGrid/>
-    <HomeBrowser/>
+   
     <StoryView/>
     <FlashSale/>
     <Reviews/>
