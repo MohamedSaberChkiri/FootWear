@@ -28,6 +28,7 @@ import React from "react";
 import CartPage from "./CartProducts";
 import { cn } from "@/lib/utils";
 import MobileNav from "./MobileNav";
+import Link from "next/link";
 
 
   
@@ -44,7 +45,8 @@ function NavBar(props : {navStyle: string}){
         <div className={cn("w-full h-24 flex items-center justify-around bg-black text-white ", props.navStyle)}>
 
 
-                <div className="text-4xl logo">FootWear</div>
+                <Link href="/"><div className="text-4xl logo">FootWear</div></Link>
+                
 
                 <div className="hidden sm:flex">
                 <Menubar className="border-none text-white bg-black">

@@ -37,7 +37,7 @@ export default function TemporaryDrawer(props: {
 
   const list = (anchor: Anchor) => (
     <Box
-      className="flex flex-col items-center justify-around h-full w-[350px] p-[10px] "
+      className="flex flex-col items-center justify-around h-[650px] w-[350px] p-[10px] "
       role="presentation"
       onClick={handleClickInsideDrawer}
     >
@@ -45,9 +45,12 @@ export default function TemporaryDrawer(props: {
       <Divider className="mt-[30px]" />
       <List className="flex flex-col items-center h-full mt-[20px]">
         {props.contente}
-        <Link href='/cart'>
-          <Button>Go To Cart</Button>
-        </Link>
+        {
+          props.title === "YOUR CART" ? <Link href='/cart' className='absolute bottom-[-20vh]'>
+          <Button className='rounded-none w-[20vh] bg-green-600 hover:bg-green-700 font-bold '>Go To Cart</Button>
+        </Link> : ''
+        }
+        
         </List>
       
   
