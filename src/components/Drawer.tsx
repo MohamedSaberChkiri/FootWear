@@ -32,7 +32,7 @@ export default function TemporaryDrawer(props: {
   };
 
   const handleClickInsideDrawer = (event: React.MouseEvent) => {
-    event.stopPropagation(); // Prevent closing the drawer when clicking inside
+    event.stopPropagation(); 
   };
 
   const list = (anchor: Anchor) => (
@@ -47,7 +47,7 @@ export default function TemporaryDrawer(props: {
         {props.contente}
         {
           props.title === "YOUR CART" ? <Link href='/cart' className='absolute bottom-[-20vh]'>
-          <Button className='rounded-none w-[20vh] bg-green-600 hover:bg-green-700 font-bold '>Go To Cart</Button>
+          <Button className='rounded-none w-[20vh] bg-black hover:bg-black font-bold '>Go To Cart</Button>
         </Link> : ''
         }
         

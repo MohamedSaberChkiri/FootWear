@@ -8,7 +8,7 @@ import {
     MenubarTrigger,
   } from "@/components/ui/menubar"
 import { IoIosArrowDown, IoMdPerson } from "react-icons/io"
-import { IoCartOutline } from 'react-icons/io5';
+import { IoCartOutline, IoLogIn } from 'react-icons/io5';
 import { IoSearchOutline } from "react-icons/io5"
 import '../app/globals.css'
 import TemporaryDrawer from "./Drawer"
@@ -21,7 +21,7 @@ import {
     DialogTitle,
     DialogTrigger,
   } from "@/components/ui/dialog"
-import LoginForm from "./LoginForm"
+
 import {GiHamburgerMenu} from 'react-icons/gi'
 import React from "react";
 
@@ -29,6 +29,9 @@ import CartPage from "./CartProducts";
 import { cn } from "@/lib/utils";
 import MobileNav from "./MobileNav";
 import Link from "next/link";
+
+import { FaUserPlus } from "react-icons/fa";
+
 
 
   
@@ -75,7 +78,7 @@ function NavBar(props : {navStyle: string}){
 
                 </div>
 
-                <div className="hidden sm:flex items-center justify-around w-40 h-12 ">
+                <div className="hidden sm:flex items-center justify-between w-28 h-12">
                 <Dialog>
                         <DialogTrigger><IoSearchOutline className="text-2xl cursor-pointer"/></DialogTrigger>
                         <DialogContent className="w-full h-fit bg-transparent border-none shadow-none">
@@ -90,18 +93,19 @@ function NavBar(props : {navStyle: string}){
                    
                    <TemporaryDrawer title="YOUR CART" badgeContent={0} opener={<IoCartOutline className="text-2xl cursor-pointer" />} contente={<CartPage/>} />
                    
-                   <Dialog>
-                        <DialogTrigger><IoMdPerson  className="text-2xl cursor-pointer"/></DialogTrigger>
-                        <DialogContent className="w-fit ">
-                            <DialogHeader>
-                            <DialogTitle className="text-3xl">Login</DialogTitle>
-                            <DialogDescription className="w-full">
-                                    <LoginForm/>
-                            </DialogDescription>
-                            </DialogHeader>
-                        </DialogContent>
-                    </Dialog>
 
+                   <Menubar className="bg-transparent border-none p-0 m-0 active:bg-transparent">
+                    <MenubarMenu>
+                        <MenubarTrigger className="p-0 active:bg-transparent"><IoMdPerson  className="text-2xl cursor-pointer"/></MenubarTrigger>
+                        <MenubarContent>
+                               <Link href='/login'><MenubarItem className="flex items-center justify-between cursor-pointer"><p>LOGIN</p> <IoLogIn className="text-xl font-bold"/></MenubarItem></Link> 
+                               <Link href='/register'> <MenubarItem className="flex items-center justify-between cursor-pointer"><p>REGISTER</p> <FaUserPlus className="text-xl font-bold"/></MenubarItem></Link>
+                              
+                        </MenubarContent>
+                    </MenubarMenu>
+                   </Menubar>
+                 
+               
                 </div>
                 <div className="flex sm:hidden cursor-pointer">
                 <TemporaryDrawer title="" badgeContent={0} opener={<GiHamburgerMenu className="text-4xl"/>} contente={<MobileNav/>} />
