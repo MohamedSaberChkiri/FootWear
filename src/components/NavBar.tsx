@@ -102,7 +102,7 @@ function NavBar(props : {navStyle: string}){
                             <DialogDescription className="w-full">
                               <input type="text" onChange={handleInputChange} className="w-full  text-black text-2xl border-b border-b-white outline-none bg-transparent pb-[20px] " placeholder="Search Products" />
                             </DialogDescription>
-                            <DialogDescription className="w-full ">
+                            <DialogDescription className="w-full">
                                     <SearchProducts keyword={searchValue}/>
                             </DialogDescription>
                             </DialogHeader>
