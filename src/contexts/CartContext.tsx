@@ -58,7 +58,8 @@ export const CartProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
     return [];
   });
 
- 
+  
+
   const addToCart = (product: Product, Con : number) => {
 
 
@@ -72,7 +73,7 @@ export const CartProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
       setCart(updatedCart);
 
   
-      
+     
 
 
    
@@ -81,12 +82,11 @@ export const CartProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
       const updatedCart = [...cart, { ...product, quantity: Con }];
       setCart(updatedCart);
 
-   
-       
-        
-
+  
  
     }
+
+    
   };
 
   const removeFromCart = (productId: string) => {
@@ -94,12 +94,15 @@ export const CartProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
     setCart(updatedCart);
   };
 
-  // Update localStorage whenever cart changes
+  
   useEffect(() => {
     if (typeof window !== 'undefined') { 
       localStorage.setItem('cart', JSON.stringify(cart));
+      
     }
   }, [cart]);
+
+  
 
   return (
     <CartContext.Provider value={{ cart, addToCart, removeFromCart}}>

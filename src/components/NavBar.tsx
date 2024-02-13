@@ -23,7 +23,7 @@ import {
   } from "@/components/ui/dialog"
 
 import {GiHamburgerMenu} from 'react-icons/gi'
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import CartPage from "./CartProducts";
 import { cn } from "@/lib/utils";
@@ -34,12 +34,23 @@ import { FaUserPlus } from "react-icons/fa";
 
 
 
+
   
 
 
 
 
 function NavBar(props : {navStyle: string}){
+
+    
+   
+    
+ 
+     
+  
+  
+
+    
 
     
     
@@ -91,7 +102,7 @@ function NavBar(props : {navStyle: string}){
                         </DialogContent>
                     </Dialog>
                    
-                   <TemporaryDrawer title="YOUR CART" badgeContent={0} opener={<IoCartOutline className="text-2xl cursor-pointer" />} contente={<CartPage/>} />
+                   <TemporaryDrawer title="YOUR CART"  opener={<IoCartOutline className="text-2xl cursor-pointer" />} contente={<CartPage/>} />
                    
 
                    <Menubar className="bg-transparent border-none p-0 m-0 active:bg-transparent">
@@ -108,7 +119,7 @@ function NavBar(props : {navStyle: string}){
                
                 </div>
                 <div className="flex sm:hidden cursor-pointer">
-                <TemporaryDrawer title="" badgeContent={0} opener={<GiHamburgerMenu className="text-4xl"/>} contente={<MobileNav/>} />
+                <TemporaryDrawer title=""  opener={<GiHamburgerMenu className="text-4xl"/>} contente={<MobileNav/>} />
                 
                 </div>
 

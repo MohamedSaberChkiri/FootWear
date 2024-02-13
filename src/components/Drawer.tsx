@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
-import Badge from '@mui/material/Badge';
 import  Link  from 'next/link';
 import { Button } from './ui/button';
 
@@ -15,7 +14,7 @@ export default function TemporaryDrawer(props: {
   title: string;
   opener: React.ReactNode;
   contente: React.ReactNode;
-  badgeContent: number;
+ 
  
   
 }) {
@@ -64,9 +63,9 @@ export default function TemporaryDrawer(props: {
     <div>
       {(['right'] as const).map((anchor) => (
         <React.Fragment key={anchor}>
-          <Badge badgeContent={props.badgeContent} color="success">
+          
             <div onClick={handleOpen}>{props.opener}</div>
-          </Badge>
+      
 
           <Drawer
             anchor={anchor}

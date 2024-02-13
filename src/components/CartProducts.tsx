@@ -16,11 +16,12 @@ const CartPage: React.FC = () => {
       const parsedCartItems = JSON.parse(cartData);
       setCartItems(parsedCartItems);
     }
+   
   }, []);
 
   const handleRemoveFromCart = (productId: string) => {
     removeFromCart(productId);
-    window.location.reload()
+  
     
    
   };
