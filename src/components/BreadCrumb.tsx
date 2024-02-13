@@ -27,7 +27,7 @@ export default function CustomSeparator() {
 
   breadcrumbs.unshift(
     
-      <Link underline="hover" href="/" className="text-gray-300">HOME</Link>
+      <Link underline="hover" href="/" key="home" className="text-gray-300">HOME</Link>
       
 
   );
