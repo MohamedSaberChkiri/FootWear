@@ -3,13 +3,13 @@ import Link from "next/link";
 import {FaArrowCircleRight} from "react-icons/fa"
 
 export default function ItemCard(props: {
-    title : string,
-    subTitle : string,
-    price : number,
-    image: string,
-    productId : string
-    style : string
-    imageStyle :string
+    title? : string,
+    subTitle? : string,
+    price? : number,
+    image?: string,
+    productId? : string
+    style? : string
+    imageStyle? :string
    
 }){
    

@@ -22,7 +22,7 @@ export default function RootLayout({
     <div>
       
        
-      <LayoutTop text="OUR COLLECTIONS"/>
+      <LayoutTop text="COLLECTION"/>
       <CartProvider>
         {children}
         </CartProvider>
