@@ -92,7 +92,7 @@ export default function ItemInfo(){
                 </Snackbar>
               
                 
-            <div className="flex flex-wrap items-center justify-center my-[3vh] gap-4">
+            <div className="flex flex-wrap items-center justify-center my-[3vh] gap-4 animate-fad">
 
                 <img src={product.backgroundLink} className="w-[40rem] h-[40rem]"></img>
 

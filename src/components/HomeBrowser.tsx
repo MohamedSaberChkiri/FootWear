@@ -25,7 +25,7 @@ export default function HomeBrowser(){
                 <Button variant="ghost" onClick={() => handleCategoryClick('New')}>New Arrivals</Button>
             </div>
 
-            <div className="flex flex-wrap w-fit h-fit gap-6 items-center justify-around mx-auto mt-12 max-w-[1500px]">
+            <div className="flex flex-wrap w-fit h-fit gap-6 items-center sm:justify-start justify-center mx-auto mt-12 max-w-[1500px]">
                 {filteredItems.map((item, index) => (
                     <ItemCard key={index} title={item.name} subTitle={`Sneakers / ${item.manufacturer}`} price={item.price} image={item.backgroundLink} productId={item.id.toString()} style='w-[250px] h-[350px]' imageStyle='w-full h-[190px]' />
                 ))}
