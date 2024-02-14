@@ -103,7 +103,8 @@ function NavBar(props : {navStyle: string}){
                  
                
                 </div>
-                <div className="flex sm:hidden cursor-pointer">
+                <div className="flex sm:hidden cursor-pointer items-center justify-center gap-6">
+                <IoSearchOutline className="text-3xl cursor-pointer" onClick={handleShowSearch}/>
                 <TemporaryDrawer title=""  opener={<GiHamburgerMenu className="text-4xl"/>} contente={<MobileNav/>} />
                 
                 </div>
