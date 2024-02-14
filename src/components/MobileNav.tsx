@@ -12,9 +12,9 @@ function MobileNav() {
       
         <div className='font-bold text-5xl cursor-pointer'>FootWear</div> 
         <div className='flex flex-col gap-4'>
-          <Link href='/collections'><Button className='rounded-none bg-black hover:bg-black text-white'>COLLECTIONS</Button></Link>
-          <Link href='/collections'><Button className='rounded-none bg-black hover:bg-black text-white'>NEW ARRIVALS</Button></Link>
-            <Link href='/contact'> <Button className='rounded-none bg-black hover:bg-black text-white'>CONTACT US</Button></Link>
+          <Link href='/collections'><Button className='rounded-none bg-black hover:bg-black text-white w-full'>COLLECTIONS</Button></Link>
+          <Link href='/collections'><Button className='rounded-none bg-black hover:bg-black text-white w-full'>NEW ARRIVALS</Button></Link>
+            <Link href='/contact'> <Button className='rounded-none bg-black hover:bg-black text-white w-full'>CONTACT US</Button></Link>
             
            
 
