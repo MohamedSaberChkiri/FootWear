@@ -13,17 +13,10 @@ import { IoSearchOutline } from "react-icons/io5"
 import '../app/globals.css'
 import TemporaryDrawer from "./Drawer"
 
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-  } from "@/components/ui/dialog"
+
 
 import {GiHamburgerMenu} from 'react-icons/gi'
-import React, {  useState } from "react";
+import React, { useState } from "react";
 
 import CartPage from "./CartProducts";
 import { cn } from "@/lib/utils";
@@ -31,7 +24,8 @@ import MobileNav from "./MobileNav";
 import Link from "next/link";
 
 import { FaUserPlus } from "react-icons/fa";
-import SearchProducts from "./SearchProducts";
+
+import DisplaySearchedItems from "./DisplaySearchedItems";
 
 
 
@@ -46,15 +40,12 @@ function NavBar(props : {navStyle: string}){
     
    
     
- 
+    const [showSearch, setShowSearch] = useState<boolean>(false)
+    const handleShowSearch = ()=>{
+      setShowSearch(!showSearch)
+    }
      
   
-    const [searchValue, setSearchValue] = useState<string>("");
-    const handleInputChange = (event:any) => {
-        setSearchValue(event.target.value);
-      };
-
-    
 
     
     
@@ -94,20 +85,7 @@ function NavBar(props : {navStyle: string}){
                 </div>
 
                 <div className="hidden sm:flex items-center justify-between w-28 h-12">
-                <Dialog >
-                        <DialogTrigger><IoSearchOutline className="text-2xl cursor-pointer"/></DialogTrigger>
-                        <DialogContent className="w-full h-fit bg-white border-none shadow-none">
-                            <DialogHeader>
-                           
-                            <DialogDescription className="w-full">
-                              <input type="text" onChange={handleInputChange} className="w-full  text-black text-2xl border-b border-b-white outline-none bg-transparent pb-[20px] " placeholder="Search Products" />
-                            </DialogDescription>
-                            <DialogDescription className="w-full">
-                                    <SearchProducts keyword={searchValue}/>
-                            </DialogDescription>
-                            </DialogHeader>
-                        </DialogContent>
-                    </Dialog>
+               <IoSearchOutline className="text-2xl cursor-pointer" onClick={handleShowSearch}/>
                    
                    <TemporaryDrawer title="YOUR CART"  opener={<IoCartOutline className="text-2xl cursor-pointer" />} contente={<CartPage/>} />
                    
@@ -130,8 +108,17 @@ function NavBar(props : {navStyle: string}){
                 
                 </div>
 
+        
+                {showSearch && (
+                    <div className="absolute top-24 left-0 w-full h-full flex items-center justify-center z-900">
+                      
+                      <DisplaySearchedItems /> 
+                    </div>
+                  )}
 
 
+        
+          
 
 
         </div>

@@ -24,10 +24,10 @@ function SearchProducts(props:{
 
 
 
-    <div className='flex items-center justify-center flex-wrap overflow-y-auto  h-[300px] '>
+    <div className='flex items-center justify-center flex-wrap overflow-y-auto gap-4 max-w-[1070px] pb-[20px] h-[450px] sm:h-[600px] '>
          {searchResults.map((product) => (
          
-         <ItemCard key={product.id} productId={product.id} image={product.backgroundLink} title={product.name} price={product.price} subTitle={product.manufacturer} style='w-[250px] h-[300px]'/>
+         <ItemCard key={product.id} productId={product.id} image={product.backgroundLink} title={product.name} price={product.price} subTitle={product.manufacturer} style='w-[250px] h-[350px] bg-white text-black rounded-[20px]' imageStyle='w-[150px] h-[150px]'/>
         ))}
     </div>
   )
