@@ -26,7 +26,7 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-.men-sneaker-col,.woman-sneaker-col,.kids-sneaker-col,.main-sneaker, .new-sneaker-col,.storydiv{
+.men-sneaker-col,.woman-sneaker-col,.kids-sneaker-col,.main-sneaker, .new-sneaker-col{
   background-size: cover;
   
   background-position: center;
@@ -40,8 +40,29 @@
 .woman-sneaker-col{background-image: url('../components/sources/women-sneaker-col.jpg');}
 .kids-sneaker-col{background-image: url('../components/sources/kids-sneaker-col.jpg');}
 .new-sneaker-col{background-image: url('../components/sources/new-sneaker-col.jpg');} 
+
+.storydiv, .storydiv1, .storydiv2, .storydiv3, .storydiv4, .storydiv5, .storydiv6, .storydiv7{
+  background-position: center;
+  background-size: cover;
+}
+
 .storydiv{background-image: url('../components/sources/StoryImage.jpg');
-background-blend-mode: darken;}
+}
+.storydiv1{background-image: url('https://images.unsplash.com/flagged/photo-1556637640-2c80d3201be8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+.storydiv2{background-image: url('https://images.unsplash.com/photo-1591550936261-4f22e48d1f03?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+.storydiv3{background-image: url('https://images.unsplash.com/photo-1530202218-5a52c6d42753?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+.storydiv4{background-image: url('https://images.unsplash.com/photo-1514989940723-e8e51635b782?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+.storydiv5{background-image: url('https://images.unsplash.com/photo-1549971352-c31ced98e984?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+.storydiv6{background-image: url('https://images.unsplash.com/photo-1508188239917-0fc5f653cb47?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+.storydiv7{background-image: url('https://images.unsplash.com/photo-1544754565-5655962dc338?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
 
 
 

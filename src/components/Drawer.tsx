@@ -43,6 +43,7 @@ export default function TemporaryDrawer(props: {
       <List className="text-black font-bold">{props.title}</List>
       <Divider className="mt-[30px]" />
       <List className="flex flex-col items-center h-full mt-[20px]">
+        
         {props.contente}
         {
           props.title === "YOUR CART" ? <Link href='/cart' className='absolute bottom-[-20vh]'>
