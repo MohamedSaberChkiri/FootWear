@@ -1,6 +1,7 @@
 "use client"
 import React from 'react'
 import { Button } from './ui/button'
+import Link from 'next/link'
 
 
 
@@ -11,14 +12,17 @@ function MobileNav() {
       
         <div className='font-bold text-5xl cursor-pointer'>FootWear</div> 
         <div className='flex flex-col gap-4'>
-            <Button className='rounded-none bg-black hover:bg-black text-white'>COLLECTIONS</Button>
-            <Button className='rounded-none bg-black hover:bg-black text-white'>NEW ARRIVALS</Button>
-            <Button className='rounded-none bg-black hover:bg-black text-white'>CONTACT US</Button>
+          <Link href='/collections'><Button className='rounded-none bg-black hover:bg-black text-white'>COLLECTIONS</Button></Link>
+          <Link href='/collections'><Button className='rounded-none bg-black hover:bg-black text-white'>NEW ARRIVALS</Button></Link>
+            <Link href='/contact'> <Button className='rounded-none bg-black hover:bg-black text-white'>CONTACT US</Button></Link>
+            
+           
 
         </div>
         <div className='absolute bottom-[50px] right-0 w-full gap-2 flex flex-col'>
-            <Button className='rounded-none bg-black hover:bg-black text-white w-full '>CART</Button>
-            <Button className='rounded-none bg-black hover:bg-black text-white w-full '>LOGIN</Button>
+          <Link href='/cart'> <Button className='rounded-none bg-black hover:bg-black text-white w-full '>CART</Button></Link>
+          <Link href='/login'><Button className='rounded-none bg-black hover:bg-black text-white w-full '>LOGIN</Button></Link>           
+            
            
         </div>
     </div>
