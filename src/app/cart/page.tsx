@@ -37,7 +37,7 @@ function Page() {
 
     const handleRemoveFromCart = (productId: string) => {
         removeFromCart(productId);
-        
+        window.location.reload()
     };
 
     return (

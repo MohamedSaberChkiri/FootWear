@@ -9,7 +9,7 @@ export default function ReviewCard(props:{
 
 }){
     return (
-        <div className="flex flex-col items-center justify-center gap-2 w-[300px] h-[450px] border px-[10px] border-zinc-600">
+        <div className="flex flex-col items-center justify-center gap-2 w-[300px] h-[450px] px-[10px] shadow-xl">
             <img src={props.image} alt="profile" className="w-[90px] h-[90px] rounded-[50%] object-cover object-top" />
             <div className="font-bold text-xl">{props.name}</div>
             <div>{props.country}</div>

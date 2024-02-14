@@ -4,22 +4,21 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
-import  Link  from 'next/link';
+import Link from 'next/link';
 import { Button } from './ui/button';
-
 
 type Anchor = 'right';
 
-export default function TemporaryDrawer(props: {
+interface DrawerProps {
   title: string;
   opener: React.ReactNode;
   contente: React.ReactNode;
- 
- 
-  
-}) {
+  closeOnClick?: boolean;
+}
+
+export default function TemporaryDrawer(props: DrawerProps) {
   const [state, setState] = React.useState({
-    right: false ,
+    right: false,
   });
 
   const handleOpen = () => {
@@ -27,11 +26,13 @@ export default function TemporaryDrawer(props: {
   };
 
   const handleClose = () => {
-    setState({ ...state, right: false});
+    setState({ ...state, right: false });
   };
 
-  const handleClickInsideDrawer = (event: React.MouseEvent) => {
-    event.stopPropagation(); 
+  const handleClickInsideDrawer = () => {
+    if (props.closeOnClick) {
+      handleClose();
+    }
   };
 
   const list = (anchor: Anchor) => (
@@ -43,20 +44,17 @@ export default function TemporaryDrawer(props: {
       <List className="text-black font-bold">{props.title}</List>
       <Divider className="mt-[30px]" />
       <List className="flex flex-col items-center h-full mt-[20px]">
-        
         {props.contente}
-        {
-          props.title === "YOUR CART" ? <Link href='/cart' className='absolute bottom-[-20vh]'>
-          <Button className='rounded-none w-[20vh] bg-black hover:bg-black font-bold '>Go To Cart</Button>
-        </Link> : ''
-        }
-        
-        </List>
-      
-  
-        
-     
-      
+        {props.title === 'YOUR CART' ? (
+          <Link href="/cart" className="absolute bottom-[-20vh]">
+            <Button className="rounded-none w-[20vh] bg-black hover:bg-black font-bold ">
+              Go To Cart
+            </Button>
+          </Link>
+        ) : (
+          ''
+        )}
+      </List>
     </Box>
   );
 
@@ -64,15 +62,9 @@ export default function TemporaryDrawer(props: {
     <div>
       {(['right'] as const).map((anchor) => (
         <React.Fragment key={anchor}>
-          
-            <div onClick={handleOpen}>{props.opener}</div>
-      
+          <div onClick={handleOpen}>{props.opener}</div>
 
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={handleClose}
-          >
+          <Drawer anchor={anchor} open={state[anchor]} onClose={handleClose}>
             {list(anchor)}
           </Drawer>
         </React.Fragment>

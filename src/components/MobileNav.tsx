@@ -10,7 +10,7 @@ function MobileNav() {
   return (
     <div className='flex flex-col gap-14 h-full'>
       
-        <div className='font-bold text-5xl cursor-pointer'>FootWear</div> 
+       <Link href='/'><div className='text-4xl'>FOOTWEAR</div> </Link> 
         <div className='flex flex-col gap-4'>
           <Link href='/collections'><Button className='rounded-none bg-black hover:bg-black text-white w-full'>COLLECTIONS</Button></Link>
           <Link href='/collections'><Button className='rounded-none bg-black hover:bg-black text-white w-full'>NEW ARRIVALS</Button></Link>
