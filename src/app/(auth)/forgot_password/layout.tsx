@@ -22,7 +22,7 @@ export default function RootLayout({
     <div>
       
        
-      <LayoutTop text="RESET YOUR PASSWORD"/>
+      <LayoutTop text="RESET YOUR PASSWORD" />
       <CartProvider>
         {children}
         </CartProvider>

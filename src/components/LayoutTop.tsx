@@ -1,17 +1,19 @@
+import { cn } from "@/lib/utils";
 import CustomSeparator from "./BreadCrumb";
 
 export default function LayoutTop(props : {
     text? : string 
+   
 }){
 
     const randomNum = Math.floor(Math.random() * 7);
 
-    // Define an array of classNames
+    
     const classNames = ['storydiv', 'storydiv1', 'storydiv2', 'storydiv3', 'storydiv4', 'storydiv5', 'storydiv6'];
 
-    console.log(classNames[randomNum])
+   
     return( 
-        <div className={`relative w-full min-h-[30vh] flex  items-start justify-start px-[20%] ${classNames[randomNum]}`}>
+        <div className={cn('relative w-full min-h-[30vh] flex  items-start justify-start px-[20%]', classNames[randomNum])}>
 
             <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
 

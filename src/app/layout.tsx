@@ -1,15 +1,8 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
-import NavBar from "@/components/NavBar";
-import Footer from "@/components/Footer";
+
 import { CartProvider } from "@/contexts/CartContext";
-
-
-
-
-
-
 
 
 export const metadata: Metadata = {
@@ -29,13 +22,9 @@ export default function RootLayout({
     <html lang="en">
       <body className="overflow-x-none">
         <CartProvider>
-      <NavBar navStyle=""/>
+      
         {children}
-
-       
-
-
-        <Footer/>
+        
        
         </CartProvider>
         </body>

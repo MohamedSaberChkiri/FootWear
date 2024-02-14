@@ -11,11 +11,14 @@ import HomeFeaturedItemsContainer from "@/components/HomeFeaturedItemsContainer"
 import Reviews from "@/components/Reviews";
 import StoryView from "@/components/StoryView";
 import TextTitle from "@/components/TextTitle";
+import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 
 
 export default function Home() {
   return (
     <>
+    <NavBar navStyle=""/>
       <CartProvider >
       <HomeItems/>
       <TextTitle preTitle="FRESH PICKS JUST FOR YOU"
@@ -29,6 +32,7 @@ export default function Home() {
     <Reviews/>
     <Benifits/>
     </CartProvider>
+    <Footer/>
     
     
     </>

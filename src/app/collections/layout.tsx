@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 import "../globals.css";
 
 import LayoutTop from "@/components/LayoutTop";
-import { CartProvider } from "@/contexts/CartContext";
+
+import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 
 
 
@@ -21,11 +23,11 @@ export default function RootLayout({
   return (
     <div>
       
-       
+        <NavBar navStyle=""/>
       <LayoutTop text="COLLECTION"/>
-      <CartProvider>
+     
         {children}
-        </CartProvider>
+        <Footer/>
        
     </div>
   );
