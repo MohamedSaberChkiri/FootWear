@@ -5,17 +5,23 @@ import { Textarea } from '@/components/ui/textarea';
 import { useCart } from '@/contexts/CartContext';
 import React, { useEffect, useState } from 'react';
 
-// Define a type for the cart item
 interface CartItem {
     id: string;
     name: string;
     price: number;
     quantity: number;
-    backgroundLink: string; 
+    backgroundLink?: string; 
     
 }
 
+
 function Page() {
+
+
+
+
+
+
     const { removeFromCart } = useCart();
     const [cartItems, setCartItems] = useState<CartItem[]>([]);
     const [total, setTotal] = useState(0);
@@ -39,6 +45,47 @@ function Page() {
         removeFromCart(productId);
         window.location.reload()
     };
+
+
+
+        {/* ----------------------API START------------------------------ */}
+
+
+        
+                const cartData: CartItem[] = cartItems.map((item) => ({
+                    id: item.id,
+                    quantity: item.quantity,
+                    price: item.price,
+                    name: item.name,
+                }));
+                    const handleSubmit = async () => {
+                
+                    try {
+                        const response = await fetch('http://localhost:5500/create-payment-session', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ cartData }),
+                        });
+                
+                        if (response.ok) {
+                            const responseData = await response.json();
+                            window.location = responseData.url
+
+                        } else {
+                        console.error('Error posting IDs:', response.statusText);
+                        // Handle error here
+                        }
+                    } catch (error) {
+                        console.error('Error posting IDs:', error);
+                        // Handle network or other errors here
+                    }
+                    };
+    
+    
+    
+    {/* ----------------------API ENDS----------------------------- */}
+
+
 
     return (
         <div className='flex flex-col w-full min-h-[30vh] items-center justify-center p-[5vh]'>
@@ -66,7 +113,7 @@ function Page() {
                         <div className='flex flex-col items-start justify-center'>
                             <p className='font-bold'>Total: <span className='font-bold text-green-700'> ${total}</span></p>
                             <p className='text-gray-500 text-[14px]'>Taxes and shipping included</p>
-                            <Button className='rounded-none bg-green-800 hover:bg-green-700 mt-[5vh] w-full'>Check Out</Button>
+                            <Button className='rounded-none bg-green-800 hover:bg-green-700 mt-[5vh] w-full' onClick={handleSubmit}>Check Out</Button>
                         </div>
                     </div>
                 </div>
