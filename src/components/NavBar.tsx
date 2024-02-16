@@ -16,7 +16,7 @@ import TemporaryDrawer from "./Drawer"
 
 
 import {GiHamburgerMenu} from 'react-icons/gi'
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import CartPage from "./CartProducts";
 import { cn } from "@/lib/utils";
@@ -26,9 +26,17 @@ import Link from "next/link";
 import { FaUserPlus } from "react-icons/fa";
 
 import DisplaySearchedItems from "./DisplaySearchedItems";
+import { Button } from "./ui/button";
 
 
 
+interface User {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+
+}
 
   
 
@@ -45,7 +53,24 @@ function NavBar(props : {navStyle: string}){
       setShowSearch(!showSearch)
     }
      
-  
+    const [loggedIn, setLoggedIn] = useState<string>('false');
+    const [UserName, setUserName] = useState<string>('')
+
+    useEffect(() => {
+      const storedIsLoggedIn = localStorage.getItem('isLoggedIn');
+      const USER = localStorage.getItem('registeredUser')
+      if(storedIsLoggedIn && USER){
+        const user = JSON.parse(USER) as User;
+        setLoggedIn('true')
+        setUserName(user.firstName)
+        
+      }
+      
+
+        
+      
+     
+    }, []);
 
     
     
@@ -84,12 +109,32 @@ function NavBar(props : {navStyle: string}){
 
                 </div>
 
-                <div className="hidden sm:flex items-center justify-between w-28 h-12">
+                <div className="hidden sm:flex items-center justify-between w-fit gap-4 h-12 ">
                <IoSearchOutline className="text-2xl cursor-pointer" onClick={handleShowSearch}/>
                    
                    <TemporaryDrawer title="YOUR CART"  opener={<IoCartOutline className="text-2xl cursor-pointer" />} contente={<CartPage/>} closeOnClick/>
                    
+                  {loggedIn === 'true' ? 
+                  
+                 
+                   <Menubar className="bg-transparent border-none p-0 m-0">
+                    <MenubarMenu>
+                        <MenubarTrigger className="p-[5px] active:bg-transparent"><div>Welcome, {UserName}</div></MenubarTrigger>
+                        <MenubarContent>
 
+
+
+                                 <Button className="bg-white hover:bg-gray-200 w-full text-black" onClick={()=>{
+                                      localStorage.removeItem("isLoggedIn");
+                                      window.location.reload()
+                                    }}>Logout</Button>
+                        </MenubarContent>
+                    </MenubarMenu>
+                   </Menubar>
+              
+
+                  
+                  : 
                    <Menubar className="bg-transparent border-none p-0 m-0 active:bg-transparent">
                     <MenubarMenu>
                         <MenubarTrigger className="p-0 active:bg-transparent"><IoMdPerson  className="text-2xl cursor-pointer"/></MenubarTrigger>
@@ -100,7 +145,7 @@ function NavBar(props : {navStyle: string}){
                         </MenubarContent>
                     </MenubarMenu>
                    </Menubar>
-                 
+                  }
                
                 </div>
                 <div className="flex sm:hidden cursor-pointer items-center justify-center gap-6">
