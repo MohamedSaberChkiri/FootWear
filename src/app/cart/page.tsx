@@ -22,7 +22,7 @@ function Page() {
 
 
 
-    const { removeFromCart } = useCart();
+    const { cart, removeFromCart } = useCart();
     const [cartItems, setCartItems] = useState<CartItem[]>([]);
     const [total, setTotal] = useState(0);
 
@@ -51,7 +51,7 @@ function Page() {
         {/* ----------------------API START------------------------------ */}
 
 
-        
+                    
                 const cartData: CartItem[] = cartItems.map((item) => ({
                     id: item.id,
                     quantity: item.quantity,
@@ -61,10 +61,12 @@ function Page() {
                     const handleSubmit = async () => {
                 
                     try {
+                        
+                        
                         const response = await fetch('http://localhost:5500/create-payment-session', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ cartData }),
+                        body: JSON.stringify({cartData}),
                         });
                 
                         if (response.ok) {
@@ -85,7 +87,7 @@ function Page() {
     
     {/* ----------------------API ENDS----------------------------- */}
 
-
+                    
 
     return (
         <div className='flex flex-col w-full min-h-[30vh] items-center justify-center p-[5vh]'>
