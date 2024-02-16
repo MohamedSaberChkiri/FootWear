@@ -13,13 +13,13 @@ export default function LayoutTop(props : {
 
    
     return( 
-        <div className={cn('relative w-full min-h-[30vh] flex  items-start justify-start px-[20%]', classNames[randomNum])}>
+        <div className={cn('relative w-full min-h-[30vh] flex sm:items-start sm:justify-start items-center justify-center sm:px-[20%]', classNames[randomNum])}>
 
             <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
 
             <div className="flex flex-col items-start justify-center text-start text-white z-20 my-[10%] gap-6">
-                <p className="font-bold text-5xl">{props.text ? props.text : 'SHOP'}</p>
-                <div className="flex flex-wrap items-center justify-around gap-4 text-gray-300"> <div>YOU ARE HERE :</div> <CustomSeparator/></div>
+                <p className="font-bold text-3xl sm:text-5xl">{props.text ? props.text : 'SHOP'}</p>
+                <div className="flex flex-wrap items-center justify-around gap-4 text-gray-300"> <CustomSeparator/></div>
             </div>
 
            

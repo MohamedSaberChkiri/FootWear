@@ -27,7 +27,7 @@ function DisplaySearchedItems() {
                 <input
                     type="text"
                     onChange={handleInputChange}
-                    className="w-[400px] text-white text-2xl border-b-2 border-b-white outline-none bg-transparent pb-[20px] mt-[5vh]"
+                    className="max-w-[400px] text-white text-2xl border-b-2 border-b-white outline-none bg-transparent pb-[20px] mt-[5vh]"
                     placeholder="Search Products"
                 />
             </div>

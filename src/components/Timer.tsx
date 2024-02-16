@@ -43,10 +43,10 @@ const Timer: React.FC<{ durationInDays: number }> = ({ durationInDays }) => {
 
     return (
         <div className='flex flex-wrap items-center justify-around gap-6'>
-            <div className='flex items-center justify-center flex-col text-3xl'>{formatTime(timeRemaining.days)}<div>DAYS</div></div>
-            <div className='flex items-center justify-center flex-col text-3xl'>{formatTime(timeRemaining.hours)}<div>HOURS</div> </div>
-            <div className='flex items-center justify-center flex-col text-3xl'>{formatTime(timeRemaining.minutes)}<div>MINUTES</div> </div>
-            <div className='flex items-center justify-center flex-col text-3xl'> {formatTime(timeRemaining.seconds)}<div>SECONDS</div></div>
+            <div className='flex items-center justify-center flex-col sm:text-3xl  '>{formatTime(timeRemaining.days)}<div>DAYS</div></div>
+            <div className='flex items-center justify-center flex-col sm:text-3xl '>{formatTime(timeRemaining.hours)}<div>HOURS</div> </div>
+            <div className='flex items-center justify-center flex-col sm:text-3xl '>{formatTime(timeRemaining.minutes)}<div>MINUTES</div> </div>
+            <div className='flex items-center justify-center flex-col sm:text-3xl '> {formatTime(timeRemaining.seconds)}<div>SECONDS</div></div>
         </div>
     );
 };

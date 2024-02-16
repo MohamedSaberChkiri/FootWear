@@ -20,7 +20,7 @@ export default function Footer(){
             <div className="bg-neutral-900 gap-12 sm:gap-[50vh] flex flex-wrap items-center justify-center min-h-[50vh] pt-[5vh]">
 
                     <div className="flex flex-col items-center sm:items-start justify-center gap-12 max-w-[600px]">
-                        <p className="text-white text-3xl text-center sm:text-start font-bold">SUBSCRIBE TODAY AND BE THE FIRST TO KNOW ABOUT NEW ARRIVALS</p>
+                        <p className="text-white text-xl sm:text-3xl text-center sm:text-start font-bold">SUBSCRIBE TODAY AND BE THE FIRST TO KNOW ABOUT NEW ARRIVALS</p>
                         <div className="flex items-center justify-center h-[5vh]">
                             <input type="email" className="text-white bg-transparent outline-none border-b-2 border-white w-[250px] h-full" placeholder="EMAIL"/>
                             <Button className="border-b-2 border-white rounded-none h-full bg-transparent hover:bg-transparent">SUBSCRIBE</Button>
