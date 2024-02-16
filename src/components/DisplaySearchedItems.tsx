@@ -22,7 +22,7 @@ function DisplaySearchedItems() {
       }, []);
 
     return (
-        <div className='absolute top-0 left-0 w-full h-full z-50 flex flex-col items-center justify-around'>
+        <div className='absolute top-0 left-0 w-full h-full z-50 flex flex-col items-center justify-around animate-fad'>
             <div className='absolute top-4 left-1/2 transform -translate-x-1/2 z-10'>
                 <input
                     type="text"

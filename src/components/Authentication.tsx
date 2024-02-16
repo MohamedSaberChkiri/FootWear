@@ -1,6 +1,6 @@
 "use client"
 
-import { Checkbox, FormControl, FormControlLabel, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField } from '@mui/material'
+import { Checkbox, CircularProgress, FormControl, FormControlLabel, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField } from '@mui/material'
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
@@ -84,8 +84,9 @@ function Authentication(props:{
       if (storedUser.email === email && storedUser.password === password) {
         localStorage.setItem("isLoggedIn", 'true');
         localStorage.setItem("registeredUser", JSON.stringify(storedUser));
-       
+        window.location.href = '/';
         return true;
+
       }
     }
     alert('USER DOESNT EXIST')
@@ -182,9 +183,9 @@ function Authentication(props:{
             />
           </FormControl>
           <div>
-            <Button onClick={() =>{
+            <Button  onClick={() =>{
               loginUser(email, password)
-            }}>LOGIN</Button>
+                        }}>LOGIN</Button>
           </div>
           <div>
             <FormControlLabel control={<Checkbox defaultChecked />} label="Remember Me" />

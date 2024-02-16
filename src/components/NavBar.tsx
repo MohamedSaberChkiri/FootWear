@@ -4,14 +4,17 @@ import {
     MenubarContent,
     MenubarItem,
     MenubarMenu,
-    MenubarShortcut,
+  
     MenubarTrigger,
   } from "@/components/ui/menubar"
-import { IoIosArrowDown, IoMdPerson } from "react-icons/io"
+import { IoMdPerson } from "react-icons/io"
 import { IoCartOutline, IoLogIn } from 'react-icons/io5';
 import { IoSearchOutline } from "react-icons/io5"
 import '../app/globals.css'
 import TemporaryDrawer from "./Drawer"
+import { MdKeyboardArrowDown } from "react-icons/md";
+
+
 
 
 
@@ -27,6 +30,7 @@ import { FaUserPlus } from "react-icons/fa";
 
 import DisplaySearchedItems from "./DisplaySearchedItems";
 import { Button } from "./ui/button";
+import { Menu, MenuItem } from "@mui/material";
 
 
 
@@ -73,7 +77,15 @@ function NavBar(props : {navStyle: string}){
     }, []);
 
     
-    
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+      setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+  
 
     return(
         <div className={cn("w-full h-24 flex items-center justify-around bg-neutral-900	 text-white ", props.navStyle)}>
@@ -82,31 +94,38 @@ function NavBar(props : {navStyle: string}){
                 <Link href="/" className="w-fit h-fit"><div className="logo"></div></Link>
                 
 
-                <div className="hidden sm:flex">
-                <Menubar className="border-none text-white bg-transparent">
-                    <Link href='/collections'>
-                    <MenubarMenu >
-                       <MenubarTrigger>New Arrivals </MenubarTrigger>
-                    </MenubarMenu>
-                    </Link>
-        <MenubarMenu>
-            <MenubarTrigger>Shop <MenubarShortcut className="ml-[5px]"><IoIosArrowDown /></MenubarShortcut></MenubarTrigger>
-            <MenubarContent>
-            <Link href='/collections'>  <MenubarItem> Men </MenubarItem>  </Link>
-            <Link href='/collections'>    <MenubarItem> Women </MenubarItem>  </Link>
-            <Link href='/collections'>   <MenubarItem> Kids </MenubarItem>  </Link>
-            <Link href='/collections'>   <MenubarItem>Sports </MenubarItem>  </Link>
-            <Link href='/collections'>     <MenubarItem> Boots </MenubarItem>  </Link>
-            </MenubarContent>
-        </MenubarMenu>
-                <MenubarMenu>
+                <div className="hidden sm:flex sm:gap-4">
+                  <Link href='/collections'><Button className="bg-transparent hover:bg-white hover:text-black  duration-200">New Arrivals</Button></Link>
+                  
+                <div>
+                      <Button
+                        id="basic-button"
+                        aria-controls={open ? 'basic-menu' : undefined}
+                        aria-haspopup="true"
+                        aria-expanded={open ? 'true' : undefined}
+                        onClick={handleClick}
+                        className="bg-transparent hover:bg-white hover:text-black flex items-center justify-center gap-2 duration-200"
+                      >
+                        Browse
+                        <MdKeyboardArrowDown className="text-xl"/>
 
-
-             <Link href='/contact'>   <MenubarTrigger>Contact Us</MenubarTrigger> </Link>
-                                                    
-            </MenubarMenu>
-    </Menubar>
-
+                      </Button>
+                      <Menu
+                        id="basic-menu"
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleClose}
+                        MenuListProps={{
+                          'aria-labelledby': 'basic-button',
+                        }}
+                      >
+                        
+                        <Link href='/collections'>   <MenuItem onClick={handleClose}>Men Sneakers</MenuItem></Link>
+                        <Link href='/collections'>   <MenuItem onClick={handleClose}>Women Sneakers</MenuItem></Link>
+                        <Link href='/collections'> <MenuItem onClick={handleClose}>kids Sneaker</MenuItem></Link>
+                      </Menu>
+                    </div>
+                    <Link href='/contact'> <Button className="bg-transparent hover:bg-white hover:text-black  duration-200">Contact Us</Button></Link>
                 </div>
 
                 <div className="hidden sm:flex items-center justify-between w-fit gap-4 h-12 ">

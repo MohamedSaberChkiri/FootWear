@@ -13,7 +13,7 @@ export default function LayoutTop(props : {
 
    
     return( 
-        <div className={cn('relative w-full min-h-[30vh] flex sm:items-start sm:justify-start items-center justify-center sm:px-[20%]', classNames[randomNum])}>
+        <div className={cn('relative w-full min-h-[30vh] flex sm:items-start sm:justify-start items-center justify-center sm:px-[20%] animate-fad', classNames[randomNum])}>
 
             <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
 
