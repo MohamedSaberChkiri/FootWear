@@ -10,7 +10,7 @@ function Recomended() {
 
 <div className="w-fit h-fit mx-auto items-start flex-col justify-around flex mb-[4rem] flex-wrap" data-aos='fade-up'>
           
-          <div className='font-bold py-3 px-8 sm:px-0'>You May Like Also</div>
+          <div className='font-bold py-3 px-8 sm:px-0'>Related Sneakers</div>
           
             <div className='flex flex-wrap items-center gap-[2rem] justify-center'>
             {firstFourProducts.map(product => (
