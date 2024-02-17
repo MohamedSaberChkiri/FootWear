@@ -39,7 +39,7 @@ const Reviews = () => {
     return (
         <div className="flex flex-col flex-wrap items-center justify-around mx-auto w-full bg-zinc-200 gap-6 py-[10vh] ">
            
-            <div className="flex gap-6 flex-wrap items-center justify-around"> {reviewsData.map(review => (
+            <div className="flex gap-6 flex-wrap items-center justify-around" data-aos='fade-up'> {reviewsData.map(review => (
                 <ReviewCard
                     key={review.id}
                     image={review.image}
