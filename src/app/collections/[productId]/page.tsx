@@ -10,6 +10,7 @@ import products from '../../../data/Shoes';
 import { useCart } from "@/contexts/CartContext";
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
+import Recomended from "@/components/Recomended";
 
 
 
@@ -123,6 +124,9 @@ export default function ItemInfo(){
                                        
                     </div>
                        {/* -------------------------------------------------------------------------------------------------------------          */}
+            
+     <Recomended />       
+            
             </div>
 
 
