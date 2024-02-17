@@ -71,6 +71,7 @@ function Authentication(props:{
   function registerUser(user: User): void {
    
     localStorage.setItem("registeredUser", JSON.stringify(user));
+    window.location.href = '/login'
   
     
   
