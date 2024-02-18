@@ -1,4 +1,16 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+"👟 FOOTWEAR Repository:
+
+Welcome to the FOOTWEAR repository! This project is a full-fledged e-commerce platform dedicated to sneakers enthusiasts. Whether you're a collector, a casual wearer, or a sneaker aficionado, our platform offers a diverse selection of premium sneakers from leading brands.
+
+Technologies Used:
+
+    Frontend: NEXT.js, Material-UI, Shadcn-UI
+    Backend: Node.js, Express.js (Only for Stripe Payment Itegration)
+    Authentication: LocalStorage as i only focused on the front end
+    Payment Gateway Integration: Stripe
+    Deployment: Vercel
+
+This repository contains the source code for both the frontend and backend components of the Sneakers Store application. Feel free to explore the codebase, contribute to the project, or use it as a reference for your own e-commerce ventures.
 
 ## Getting Started
 
@@ -20,17 +32,5 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
