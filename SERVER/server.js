@@ -7,7 +7,7 @@ const app  = express()
 
 app.use(express.json())
 app.use(cors({
-    origin : 'http://localhost:3000'
+    origin : 'https://shoes-store-two.vercel.app'
 }))
 
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
