@@ -155,7 +155,8 @@ function Authentication(props:{
           <Link href='/login'><p className='underline text-[13px]'>I HAVE AN ACCOUNT</p></Link>
         </div>
       </div>
-    ) : (
+    ) 
+    : (
       <div className='flex flex-col my-[10vh] mx-auto w-fit border items-center gap-6'>
         <p className='font-bold text-xl mt-[5vh]'>LOGIN</p>
 
