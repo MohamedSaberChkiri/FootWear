@@ -37,7 +37,8 @@ export default function CustomSeparator() {
       separator=""
       aria-label="breadcrumb"
       className="text-white">
-      {breadcrumbs}
+       {breadcrumbs}
+   
     </Breadcrumbs>
   );
 }
