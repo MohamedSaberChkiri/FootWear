@@ -63,7 +63,7 @@ function Page() {
                     try {
                         
                         
-                        const response = await fetch('https://shoes-store-server-rjwmbowa8-mohamedsaberchkiris-projects.vercel.app/create-payment-session', {
+                        const response = await fetch('https://footwearserver.vercel.app/create-payment-session', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({cartData}),
