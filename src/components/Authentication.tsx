@@ -98,8 +98,17 @@ function Authentication(props:{
 
 
   return (
-    <div className='w-full'>
-    {props.register ? (
+    <div className='w-full flex items-center justify-center h-full'>
+    {
+    
+    props.reset_password ? <div className='border p-12 flex flex-col gap-4 max-w-[400px] mt-[10vh] mx-[10px]'>
+      <p className='font-bold'>Reset Your Password</p>
+      <TextField label="Email" required></TextField>
+      <Button>Reset</Button>
+    </div> :
+    
+    
+    props.register ? (
       <div className='flex flex-col my-[10vh] mx-auto w-fit border items-center gap-6'>
         <p className='font-bold text-2xl mt-[5vh]'>REGISTER</p>
 

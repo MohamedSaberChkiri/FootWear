@@ -34,7 +34,7 @@ export default function Footer(){
                             <PinterestIcon className="cursor-pointer"/>
 
                         </div>
-                        <p className="text-white">MADE WITH BY <FavoriteIcon className="text-indigo-700"/> MOHAMED SABER CHKIRI</p>
+                        <p className="text-gray-500 text-[13px]">MADE WITH BY <FavoriteIcon className="text-white text-[16px]"/> MOHAMED SABER CHKIRI</p>
                     </div>
                     
                     
@@ -67,11 +67,11 @@ export default function Footer(){
                         </div>
 
 
-                        <div className="flex items-center justify-center gap-3">
-                            <FaCcMastercard className="text-6xl text-white"/>
-                            <FaCcPaypal className="text-6xl text-white"/>
-                            <FaCcVisa className="text-6xl text-white"/>
-                            <FaCcStripe className="text-6xl text-white"/>
+                        <div className="flex items-center justify-center gap-3 sm:text-6xl text-4xl text-white">
+                            <FaCcMastercard />
+                            <FaCcPaypal />
+                            <FaCcVisa />
+                            <FaCcStripe />
                         </div>
 
 
