@@ -18,7 +18,7 @@ export default function ItemCard(props: {
     return (
         <Link href={`/collections/${props.productId}`}>
         <div className={cn('w-[295px] h-[475px] shadow-xl flex flex-col items-start justify-around p-[35px] cursor-pointer mt-[1rem]', props.style)}>
-            <img className={cn("w-[220px] h-[250px]", props.imageStyle)} src={ProductImage}/>
+            <img className={cn("w-[220px] h-[250px]", props.imageStyle)} alt="Sneaker" src={ProductImage}/>
             <div>
                 <div className="font-bold">{props.title}</div>
                  <div>{props.subTitle}</div>

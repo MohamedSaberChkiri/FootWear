@@ -20,7 +20,7 @@ export default function CustomSeparator() {
   const breadcrumbs = pathParts.map((part, index) => (
     <Typography key={index} className="text-gray-300 flex items-center justify-center w-fit h-fit flex-wrap">
        
-      <Link underline="hover" href={`/${part}`} className="text-gray-300">{part.toUpperCase()}</Link>
+      <Link underline="hover" href={`/${part}`} className="text-white">{part.toUpperCase()}</Link>
       <NavigateNextIcon fontSize="small"/>
     </Typography>
   ));

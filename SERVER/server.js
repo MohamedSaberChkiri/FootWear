@@ -36,7 +36,7 @@ app.post("/create-payment-session", async (req, res)=>{
                 }
             }),
             success_url : `${process.env.CLIENT_URL}/success`,
-            cancel_url : `${process.env.CLIENT_URL}`,
+            cancel_url : `${process.env.CLIENT_URL}/cart`,
 
 
 

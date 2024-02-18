@@ -18,15 +18,19 @@ import Recomended from "@/components/Recomended";
 export default function ItemInfo(){
     const productId = useParams()
     const product = products.find((product) => product.id === productId.productId);
-   
-       
+   const { addToCart } = useCart();
+       const [open, setOpen] = useState(false);
+      const [Con, setCon] = useState<number>(1)
+     
        if (!product) {
            return (console.log("product not found"));
          }
    
 
 
-         const [Con, setCon] = useState<number>(1)
+        
+
+
          const AddCon =()=>{
              if(Con < 10){
                  setCon(Con +1)
@@ -59,7 +63,7 @@ export default function ItemInfo(){
 
 
 
-    const { addToCart } = useCart();
+    
 
 
 
@@ -68,7 +72,7 @@ export default function ItemInfo(){
 
  
 
-   const [open, setOpen] = useState(false);
+   
 
       
  
@@ -95,7 +99,7 @@ export default function ItemInfo(){
                 
             <div className="flex flex-wrap items-center justify-center my-[3vh] gap-4 animate-fad">
 
-                <img src={product.backgroundLink} className="w-[40rem] h-[40rem]"></img>
+                <img src={product.backgroundLink} className="w-[40rem] h-[40rem]" alt="Sneaker"></img>
 
                                {/* -------------------------------------------------------------------------------------------------------------          */}
 
