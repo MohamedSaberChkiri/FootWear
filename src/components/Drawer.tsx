@@ -45,15 +45,7 @@ export default function TemporaryDrawer(props: DrawerProps) {
       <Divider className="mt-[30px]" />
       <List className="flex flex-col items-center h-full mt-[20px]">
         {props.contente}
-        {props.title === 'YOUR CART' ? (
-          <Link href="/cart" className="absolute bottom-0">
-            <Button className="rounded-none w-[20vh] bg-black hover:bg-black font-bold ">
-              Go To Cart
-            </Button>
-          </Link>
-        ) : (
-          ''
-        )}
+       
       </List>
     </Box>
   );

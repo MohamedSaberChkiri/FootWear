@@ -8,7 +8,7 @@ import Link from 'next/link'
 
 function MobileNav() {
   return (
-    <div className='flex flex-col gap-14 h-full'>
+    <div className='flex flex-col gap-14 h-[80vh]'>
       
        <Link href='/'><div className='text-4xl'>FOOTWEAR</div> </Link> 
         <div className='flex flex-col gap-4'>
