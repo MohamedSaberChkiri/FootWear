@@ -1,11 +1,16 @@
 "use client"
 
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import ItemCard from "./ItemCard";
 import { Button } from "./ui/button";
-import products from '../data/Shoes'
+import ProductContext from '@/contexts/DbProdcutsContext';
 
 export default function HomeBrowser(){
+    
+    const { products } = useContext(ProductContext);
+   
+   
+    
 
     const [selectedCategory, setSelectedCategory] = useState('all');
   
@@ -17,13 +22,15 @@ export default function HomeBrowser(){
 
     return(
         <div className="mt-[100px] mb-[100px] mx-auto w-full flex flex-col animate-fad">
-            <div className="w-fit h-[4vh] flex items-center justify-center flex-wrap w-full gap-2">
+            <div className="w-full h-[4vh] flex items-center justify-center flex-wrap gap-2">
                 <Button variant="ghost" className='focus:bg-gray-100' onClick={() => handleCategoryClick('all')}>All</Button>
                 <Button variant="ghost" className='focus:bg-gray-100' onClick={() => handleCategoryClick('Men')}>Men</Button>
                 <Button variant="ghost" className='focus:bg-gray-100' onClick={() => handleCategoryClick('Women')}>Women</Button>
                 <Button variant="ghost" className='focus:bg-gray-100' onClick={() => handleCategoryClick('Kids')}>Kids</Button>
                 <Button variant="ghost" className='focus:bg-gray-100' onClick={() => handleCategoryClick('New')}>New Arrivals</Button>
             </div>
+
+           
 
             <div className="flex flex-wrap w-fit h-fit gap-6 items-center sm:justify-start justify-center mx-auto mt-12 max-w-[1500px]">
                 {filteredItems.map((item, index) => (

@@ -21,10 +21,11 @@ const CartPage: React.FC = () => {
   }, []);
 
   const handleRemoveFromCart = (productId: string) => {
-    removeFromCart(productId);
-  
-    
-   
+    const userId = localStorage.getItem('userName');
+    if (!userId) {
+      return alert('Please Login First');
+    } 
+    removeFromCart(userId,productId);
   };
 
 

@@ -2,11 +2,11 @@
 
 import { Button } from "@/components/ui/button"
 import { Rating} from "@mui/material"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import Divider from '@mui/material/Divider';
 import { useParams } from "next/navigation";
+import ProductContext from "@/contexts/DbProdcutsContext";
 
-import products from '../../../data/Shoes';
 import { useCart } from "@/contexts/CartContext";
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
@@ -17,6 +17,8 @@ import Recomended from "@/components/Recomended";
 
 export default function ItemInfo(){
     const productId = useParams()
+    const { products } = useContext(ProductContext);
+
     const product = products.find((product) => product.id === productId.productId);
    const { addToCart } = useCart();
        const [open, setOpen] = useState(false);
@@ -49,8 +51,11 @@ export default function ItemInfo(){
      
 
     const handleClick = async () => {
-        
-        addToCart(product, Con)
+       const userId = localStorage.getItem('userName')
+         if(!userId){
+              return alert("Please Login First")
+            }
+        addToCart(userId, product, Con)
       
         setOpen(true);
 
@@ -58,24 +63,6 @@ export default function ItemInfo(){
     };
   
   
-
-
-
-
-
-    
-
-
-
-
-
-
- 
-
-   
-
-      
- 
   
     const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
       if (reason === 'clickaway') {

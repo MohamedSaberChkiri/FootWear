@@ -1,11 +1,28 @@
-import products ,{Product} from '@/data/Shoes';
-import React, { useEffect, useState } from 'react'
+import ProductContext from '@/contexts/DbProdcutsContext';
+import React, { useContext, useEffect, useState } from 'react'
 import ItemCard from './ItemCard';
+
+
+interface Product {
+  id: string;
+  name: string;
+  price: number;
+  manufacturer: string
+  category: string
+  currentStock: number;
+  description: string;
+  backgroundLink: string;
+  quantity : number;
+}
+
+
+
 
 function SearchProducts(props:{
     keyword : string
 }) {
 
+  const { products } = useContext(ProductContext);
 
     const [searchResults, setSearchResults] = useState<Product[]>([]);
 

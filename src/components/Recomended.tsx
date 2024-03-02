@@ -1,8 +1,11 @@
-import React from 'react'
-import products from '../data/Shoes';
+import React, { useContext } from 'react'
+import ProductContext from '@/contexts/DbProdcutsContext';
+
 import ItemCard from './ItemCard';
 
 function Recomended() {
+  const { products } = useContext(ProductContext);
+
     const firstFourProducts = products.slice(6, 10);
 
   return (

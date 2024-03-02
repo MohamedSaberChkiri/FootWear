@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import { CartProvider } from "@/contexts/CartContext";
+import { ProductProvider } from "@/contexts/DbProdcutsContext";
 
 
 export const metadata: Metadata = {
@@ -22,10 +23,9 @@ export default function RootLayout({
     <html lang="en">
       <body className="overflow-x-none">
         <CartProvider>
-      
+        <ProductProvider> 
         {children}
-        
-       
+        </ProductProvider>
         </CartProvider>
         </body>
     </html>

@@ -1,10 +1,11 @@
-import Authentication from '@/components/Authentication'
+
+import RegistrationForm from '@/components/AuthenticationComponents/RegisterAuth'
 import React from 'react'
 
 function page() {
   return (
     <div>
-      <Authentication register/>
+      <RegistrationForm/>
     </div>
   )
 }
