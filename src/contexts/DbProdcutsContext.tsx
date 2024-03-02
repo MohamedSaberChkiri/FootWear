@@ -1,5 +1,6 @@
 'use client'
 
+import axios from 'axios';
 import React, { createContext, useState, useEffect, useContext, PropsWithChildren } from 'react';
 
 // Define the product type
@@ -41,12 +42,11 @@ export const ProductProvider: React.FC<PropsWithChildren<{}>> = ({ children }) =
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch('https://foot-wear-one.vercel.app/getallproducts'); 
-      if (!response.ok) {
+      const response = await axios.get('https://foot-wear-one.vercel.app/getallproducts'); 
+      if (!response) {
         throw new Error('Failed to fetch products');
       }
-      const data = await response.json();
-      setProducts(data);
+      setProducts(response.data);
   
     } catch (error) {
       console.error(error);
