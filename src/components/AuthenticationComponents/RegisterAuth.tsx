@@ -22,7 +22,7 @@ const RegistrationForm: React.FC = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5500/user/register', { username, email, password });
+      const response = await axios.post('https://footwearserver.vercel.app/user/register', { username, email, password });
       console.log(response.data); 
       
       

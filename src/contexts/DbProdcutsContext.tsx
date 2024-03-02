@@ -41,7 +41,7 @@ export const ProductProvider: React.FC<PropsWithChildren<{}>> = ({ children }) =
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch('http://localhost:5500/getallproducts'); 
+      const response = await fetch('https://footwearserver.vercel.app/getallproducts'); 
       if (!response.ok) {
         throw new Error('Failed to fetch products');
       }
