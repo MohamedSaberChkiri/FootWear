@@ -1,11 +1,12 @@
-import Authentication from '@/components/Authentication'
+
+import ResetPassAuth from '@/components/AuthenticationComponents/ResetPassAuth'
 import React from 'react'
 
 function page() {
   return (
     <div>
 
-      <Authentication reset_password/>
+      <ResetPassAuth />
     </div>
   )
 }
