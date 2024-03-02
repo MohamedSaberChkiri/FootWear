@@ -4,9 +4,8 @@ Welcome to the FOOTWEAR repository! This project is a full-fledged e-commerce pl
 
 Technologies Used:
 
-    Frontend: NEXT.js, Material-UI, Shadcn-UI
-    Backend: Node.js, Express.js (Only for Stripe Payment Itegration)
-    Authentication: LocalStorage as i only focused on the front end
+    Frontend: NEXT.js, Material-UI, Shadcn-UI, Tailwind CSS
+    Backend: Node.js, Express.js, MongoDB
     Payment Gateway Integration: Stripe
     Deployment: Vercel
 
