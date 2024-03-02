@@ -3,10 +3,10 @@ const {  ServerApiVersion } = require('mongodb');
 const express = require("express")
 const cors = require('cors');
 const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
-const User = require('./database/user.model')
-const Product = require('./database/product.model')
+const User = require('./database/models/user.model')
+const Product = require('./database/models/product.model')
 const mongoose = require('mongoose')
+const bodyParser = require('body-parser');
 
 
 const app  = express()
@@ -86,7 +86,7 @@ mongoose.connect(uri, {
   });
 
 
-const secret = process.env.JWT_SECRET; // Store JWT secret in a secure environment variable
+
 
 
 app.post('/user/register', async (req, res) => {
@@ -135,10 +135,10 @@ app.post('/user/register', async (req, res) => {
         return res.status(401).json({ message: 'Invalid email or password' });
       }
   
-      // Generate JWT token
-      const token = jwt.sign({ userId: user._id }, secret, { expiresIn: '30m' });
+     
+   
   
-      res.json({ token, user: { username: user.username, email: user.email } });
+      res.json({ name : user.username, items  : user.cart});
     } catch (error) {
       console.error('Error logging in user:', error);
       res.status(500).json({ message: 'Server error' });
@@ -160,6 +160,62 @@ app.get('/getallproducts', async (req, res) => {
     } catch (error) {
       console.error("Error getting products:", error);
       res.status(500).json({ error: 'Error getting products' });
+    }
+  });
+  
+  app.use(bodyParser.json());
+
+  app.post('/api/addToCart/:userId/:productId', async (req, res) => {
+    const userId = req.params.userId;
+    const productId = req.params.productId;
+    const { quantity } = req.body;
+  
+    try {
+     
+      const user = await User.findOne({ username: userId });
+  
+      if (!user) {
+        return res.status(404).json({ success: false, message: 'User not found' });
+      }
+  
+      // Add item to user's cart
+      user.cart.push({ productId, quantity });
+      await user.save();
+  
+      return res.status(200).json({ success: true, message: 'Item added to cart successfully' });
+    } catch (error) {
+      console.error('Error adding item to cart:', error);
+      return res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+  });
+
+  app.delete('/api/removeFromCart/:userId/:productId', async (req, res) => {
+    try {
+      const userId = req.params.userId;
+      const productId = req.params.productId;
+  
+      // Find the user by userId
+      const user = await User.findOne({ username: userId });
+  
+      if (!user) {
+        return res.status(404).json({ success: false, message: 'User not found' });
+      }
+  
+      // Find the index of the item in the user's cart
+      const index = user.cart.findIndex(item => item.productId === productId);
+  
+      if (index === -1) {
+        return res.status(404).json({ success: false, message: 'Item not found in the user\'s cart' });
+      }
+  
+      // Remove the item from the user's cart
+      user.cart.splice(index, 1);
+      await user.save(); // Save changes to the database
+  
+      return res.status(200).json({ success: true, message: 'Item removed from cart successfully' });
+    } catch (error) {
+      console.error('Error removing item from cart:', error);
+      return res.status(500).json({ success: false, message: 'Internal server error' });
     }
   });
   

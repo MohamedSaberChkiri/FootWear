@@ -15,8 +15,8 @@ const LoginForm: React.FC = () => {
 
     try {
       const response = await axios.post('http://localhost:5500/user/login', { email, password });
-      console.log(response.data); 
-     
+      localStorage.setItem('userName', response.data.name);
+     window.location.href = '/';
     } catch (error) {
       setError('Invalid email or password');
     }

@@ -1,4 +1,3 @@
-// models/User.js
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
@@ -16,10 +15,17 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  cart: {
-    type: [mongoose.Schema.Types.ObjectId],
-    default: [],
-  },
+  cart: [{
+    productId: {
+      type: String,
+      required: true,
+    },
+    quantity: {
+      type: Number,
+      default: 0
+    }
+  }],
 });
 
 module.exports = mongoose.model('User', userSchema);
+

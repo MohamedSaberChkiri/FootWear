@@ -61,20 +61,12 @@ function NavBar(props : {navStyle: string}){
     const [UserName, setUserName] = useState<string>('')
 
     useEffect(() => {
-      const storedIsLoggedIn = localStorage.getItem('isLoggedIn');
-      const USER = localStorage.getItem('registeredUser')
-      if(storedIsLoggedIn && USER){
-        const user = JSON.parse(USER) as User;
+      const USER = localStorage.getItem('userName')
+      if(USER){
+  
         setLoggedIn('true')
-        setUserName(user.firstName)
-        
-      }
-      
-
-        
-      
-     
-    }, []);
+        setUserName(USER)
+      }}, []);
 
     
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -145,6 +137,7 @@ function NavBar(props : {navStyle: string}){
 
                                  <Button className="bg-white hover:bg-gray-200 w-full text-black" onClick={()=>{
                                       localStorage.removeItem("isLoggedIn");
+                                      localStorage.removeItem("userName");
                                       window.location.reload()
                                     }}>Logout</Button>
                         </MenubarContent>

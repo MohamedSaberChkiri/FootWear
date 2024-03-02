@@ -51,8 +51,11 @@ export default function ItemInfo(){
      
 
     const handleClick = async () => {
-        
-        addToCart(product, Con)
+       const userId = localStorage.getItem('userName')
+         if(!userId){
+              return alert("Please Login First")
+            }
+        addToCart(userId, product, Con)
       
         setOpen(true);
 

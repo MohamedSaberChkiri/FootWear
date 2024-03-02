@@ -47,7 +47,7 @@ export const ProductProvider: React.FC<PropsWithChildren<{}>> = ({ children }) =
       }
       const data = await response.json();
       setProducts(data);
-      console.log(data);
+  
     } catch (error) {
       console.error(error);
       // Handle error
