@@ -42,18 +42,28 @@ export const ProductProvider: React.FC<PropsWithChildren<{}>> = ({ children }) =
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('https://foot-wear-one.vercel.app/getallproducts'); 
-      if (!response) {
-        throw new Error('Failed to fetch products');
-      }
-      setProducts(response.data);
+      const response = await axios.get('https://foot-wear-one.vercel.app/getallproducts');
   
+      // Check for successful response status:
+      if (response.status !== 200) {
+        throw new Error(`Failed to fetch products: ${response.statusText}`);
+      }
+  
+      // Ensure response data is available:
+      if (!response.data) {
+        throw new Error('Server response does not contain product data');
+      }
+  
+      setProducts(response.data);
     } catch (error) {
-      console.error(error);
-      // Handle error
+      // Log the error for debugging:
+      console.error('Error fetching products:', error);
+  
+      // Handle the error gracefully in the UI:
+      console.log('An error occurred while fetching products. Please try again later.');
     }
   };
-
+  
   return (
     // Provide the products state and update function as values to the context
     <ProductContext.Provider value={{ products, setProducts }}>
