@@ -48,7 +48,7 @@ export const CartProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
     setCart(updatedCart);
 
     // Send request to server to add item to user's cart using Axios
-    axios.post(`https://footwearserver.vercel.app/api/addToCart/${userId}/${product.id}`, { quantity })
+    axios.post(`https://foot-wear-server.vercel.app/api/addToCart/${userId}/${product.id}`, { quantity })
       .then(response => {
         if (!response.data.success) {
          console.log("error")
@@ -65,7 +65,7 @@ export const CartProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
     setCart(updatedCart);
 
     // Send request to server to remove item from user's cart using Axios
-    axios.delete(`https://footwearserver.vercel.app/api/removeFromCart/${userId}/${productId}`)
+    axios.delete(`https://foot-wear-server.vercel.app/api/removeFromCart/${userId}/${productId}`)
       .then(response => {
         if (!response.data.success) {
           console.log("error")

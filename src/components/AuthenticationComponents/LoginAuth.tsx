@@ -14,7 +14,7 @@ const LoginForm: React.FC = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://footwearserver.vercel.app/user/login', { email, password });
+      const response = await axios.post('https://foot-wear-server.vercel.app/user/login', { email, password });
       localStorage.setItem('userName', response.data.name);
      window.location.href = '/';
     } catch (error) {
