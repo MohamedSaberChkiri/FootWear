@@ -42,7 +42,7 @@ export const ProductProvider: React.FC<PropsWithChildren<{}>> = ({ children }) =
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('https://foot-wear-one.vercel.app/getallproducts');
+      const response = await axios.get('https://foot-wear-server.vercel.app/getallproducts');
   
       // Check for successful response status:
       if (response.status !== 200) {
