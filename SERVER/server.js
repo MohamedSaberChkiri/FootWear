@@ -16,6 +16,7 @@ app.use(cors({
     origin : 'https://foot-wear-one.vercel.app',
    
 }))
+app.use(bodyParser.json());
 
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
 passwordDB = process.env.DATABASE_PASSWORD
@@ -162,7 +163,7 @@ app.get('/getallproducts', async (req, res) => {
     }
   });
   
-  app.use(bodyParser.json());
+ 
 
   app.post('/api/addToCart/:userId/:productId', async (req, res) => {
     const userId = req.params.userId;
