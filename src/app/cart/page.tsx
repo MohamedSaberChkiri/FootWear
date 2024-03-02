@@ -22,7 +22,7 @@ function Page() {
 
 
 
-    const { cart, removeFromCart } = useCart();
+    const {  removeFromCart } = useCart();
     const [cartItems, setCartItems] = useState<CartItem[]>([]);
     const [total, setTotal] = useState(0);
 
@@ -42,7 +42,9 @@ function Page() {
     }, []);
 
     const handleRemoveFromCart = (productId: string) => {
-        removeFromCart(productId);
+        const userId = localStorage.getItem('userName');
+        if(!userId) return;
+        removeFromCart(userId, productId);
         window.location.reload()
     };
 
