@@ -13,7 +13,7 @@ const app  = express()
 
 app.use(express.json())
 app.use(cors({
-    origin : 'https://foot-wear-one.vercel.app/',
+    origin : 'https://foot-wear-one.vercel.app',
    
 }))
 
