@@ -1,10 +1,11 @@
-import Authentication from '@/components/Authentication'
+
+import LoginForm from '@/components/AuthenticationComponents/LoginAuth'
 import React from 'react'
 
 function page() {
   return (
     <div className='w-full'>
-        <Authentication login/>
+        <LoginForm/>
     </div>
   )
 }
