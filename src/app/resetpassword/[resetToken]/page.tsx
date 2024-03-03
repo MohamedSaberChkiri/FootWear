@@ -25,6 +25,7 @@ function page() {
 
     try {
       const response = await fetch('https://foot-wear-server.vercel.app/api/reset-password', {
+        
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
