@@ -2,19 +2,30 @@
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import React, { FormEvent } from 'react'
+import React, { FormEvent, useEffect } from 'react'
 import { useState } from 'react';
-import { useRouter } from 'next/router';
 
 function page() {
-
-  const router = useRouter();
-
-  const { resetToken } = router.query;
 
   const [message, setMessage] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [newPasswordRepeat, setNewPasswordRepeat] = useState('');
+  const [resetToken, setResetToken] = useState('');
+
+
+  function getLastSegmentFromUrl(url: string) {
+    const segments = url.split('/');
+    return segments[segments.length - 1];
+  }
+  
+  useEffect(() => {
+    
+    const url = window.location.href;
+    const resetToken = getLastSegmentFromUrl(url);
+    setResetToken(resetToken);
+  }, []);
+
+
 
 
   const handleSubmit = async (e: FormEvent) => {
