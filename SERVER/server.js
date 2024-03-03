@@ -221,7 +221,7 @@ app.get('/getallproducts', async (req, res) => {
   });
   
 
-  app.post('/api/forgot-password', async (req, res) => {
+  app.post('/api/forgotPassword', async (req, res) => {
     const { email } = req.body;
     try {
       const user = await User.findOne({ email });
@@ -262,7 +262,7 @@ app.get('/getallproducts', async (req, res) => {
   });
   
 
-  app.post('api/reset-password', async (req, res) => {
+  app.post('api/resetPassword', async (req, res) => {
     const { resetToken, newPassword } = req.body;
   
     try {

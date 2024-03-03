@@ -33,16 +33,12 @@ const handleSubmit = async (e: FormEvent) => {
 
   try {
     const response = await axios.post(
-      'https://foot-wear-server.vercel.app/api/reset-password',
+      'https://foot-wear-server.vercel.app/api/resetPassword',
       {
         resetToken,
         newPassword,
-      },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-        },
       }
+      
     );
 
     setMessage(response.data.message);
