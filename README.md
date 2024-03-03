@@ -9,6 +9,12 @@ Technologies Used:
     Payment Gateway Integration: Stripe
     Deployment: Vercel
 
+
+
+<img width="667" alt="Bildschirmfoto 2024-03-03 um 11 06 13" src="https://github.com/MohamedSaberChkiri/FootWear/assets/75795312/da903067-62de-4548-9990-28244f830bca">
+
+
+
 This repository contains the source code for both the frontend and backend components of the Sneakers Store application. Feel free to explore the codebase, contribute to the project, or use it as a reference for your own e-commerce ventures.
 
 ## Getting Started
