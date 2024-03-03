@@ -2,6 +2,7 @@
 import React, { FormEvent, useState } from 'react'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
+import axios from 'axios';
 
 function ResetPassAuth() {
 
@@ -10,23 +11,27 @@ function ResetPassAuth() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-
+  
     try {
-      const response = await fetch('https://foot-wear-server.vercel.app/api/forgot-password', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
+      const response = await axios.post(
+        'https://foot-wear-server.vercel.app/api/forgot-password',
+        {
+          email,
         },
-        body: JSON.stringify({ email })
-      });
-
-      const data = await response.json();
-      setMessage(data.message);
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+  
+      setMessage(response.data.message); // Access data directly from response
     } catch (error) {
       console.error('Error:', error);
       setMessage('An error occurred. Please try again later.');
     }
   };
+  
 
 
   return (
