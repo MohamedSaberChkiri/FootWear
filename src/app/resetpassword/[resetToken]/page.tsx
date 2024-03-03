@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import React, { FormEvent } from 'react'
@@ -25,7 +27,7 @@ function page() {
 
     try {
       const response = await fetch('https://foot-wear-server.vercel.app/api/reset-password', {
-        
+
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
