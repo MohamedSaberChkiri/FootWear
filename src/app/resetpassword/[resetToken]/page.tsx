@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input'
 import React, { FormEvent, useEffect, useState} from 'react'
 
 function Page() {
+  
   const [message, setMessage] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [newPasswordRepeat, setNewPasswordRepeat] = useState('');
@@ -12,7 +13,7 @@ function Page() {
 
   function getLastSegmentFromUrl(url: string) {
     const segments = url.split('/');
-    return segments[segments.length - 1] || ''; // Handle empty URL segment
+    return segments[segments.length - 1] || '';
   }
   
   useEffect(() => {

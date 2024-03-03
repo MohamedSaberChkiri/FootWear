@@ -223,7 +223,6 @@ app.get('/getallproducts', async (req, res) => {
 
   app.post('/api/forgot-password', async (req, res) => {
     const { email } = req.body;
-  
     try {
       const user = await User.findOne({ email });
       if (!user) {
