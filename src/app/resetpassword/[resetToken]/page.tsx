@@ -4,31 +4,22 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import React, { FormEvent, useEffect, useState} from 'react'
 
-
-function page() {
-
+function Page() {
   const [message, setMessage] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [newPasswordRepeat, setNewPasswordRepeat] = useState('');
   const [resetToken, setResetToken] = useState('');
 
-  
-
-
   function getLastSegmentFromUrl(url: string) {
     const segments = url.split('/');
-    return segments[segments.length - 1];
+    return segments[segments.length - 1] || ''; // Handle empty URL segment
   }
   
   useEffect(() => {
-    
     const url = window.location.href;
-    const resetToken = getLastSegmentFromUrl(url);
-    setResetToken(resetToken);
+    const token = getLastSegmentFromUrl(url);
+    setResetToken(token);
   }, []);
-
-
-
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -40,13 +31,16 @@ function page() {
 
     try {
       const response = await fetch('https://foot-wear-server.vercel.app/api/reset-password', {
-
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({ resetToken, newPassword })
       });
+
+      if (!response.ok) {
+        throw new Error('Failed to reset password');
+      }
 
       const data = await response.json();
       setMessage(data.message);
@@ -56,17 +50,14 @@ function page() {
     }
   };
 
-
-  
   return (
     <form onSubmit={handleSubmit} className='mx-auto border flex flex-col items-left justify-center w-fit gap-6 p-12 mt-12'>
-
-      <Input className='w-[300px]' type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} placeholder="New Password" required></Input>
-      <Input className='w-[300px]' type="password" value={newPasswordRepeat} onChange={(e) => {setNewPasswordRepeat(e.target.value)} } placeholder="Repeat New Password" required></Input>
+      <Input className='w-[300px]' type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} placeholder="New Password" required />
+      <Input className='w-[300px]' type="password" value={newPasswordRepeat} onChange={(e) => setNewPasswordRepeat(e.target.value)} placeholder="Repeat New Password" required />
       <Button type="submit">Reset Password</Button>
-      <div> {message} </div>
-      </form>
-  )
+      <div>{message}</div>
+    </form>
+  );
 }
 
-export default page
+export default Page;
