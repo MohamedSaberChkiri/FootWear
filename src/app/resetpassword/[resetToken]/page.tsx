@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import React, { FormEvent, useEffect,  useState} from 'react'
+import React, { FormEvent, useEffect, useState} from 'react'
 
 
 function page() {
@@ -11,6 +11,8 @@ function page() {
   const [newPassword, setNewPassword] = useState('');
   const [newPasswordRepeat, setNewPasswordRepeat] = useState('');
   const [resetToken, setResetToken] = useState('');
+
+  
 
 
   function getLastSegmentFromUrl(url: string) {
