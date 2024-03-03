@@ -4,6 +4,7 @@ import React, { use, useState } from 'react';
 import axios from 'axios'; 
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
+import Link from 'next/link';
 const RegistrationForm: React.FC = () => {
   
 
@@ -59,6 +60,9 @@ const RegistrationForm: React.FC = () => {
       </div>
       {error && <div>{error}</div>}
       <Button type="submit">Register</Button>
+      <Link href='/login'>
+        <Button className='bg-transparent w-full hover:bg-transparent text-gray-500 underline'>Already have an Account ?</Button>
+      </Link>
     </form>
   );
 };
