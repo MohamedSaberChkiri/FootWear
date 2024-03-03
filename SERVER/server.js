@@ -7,6 +7,7 @@ const User = require('./database/models/user.model')
 const Product = require('./database/models/product.model')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
 
 
 const app  = express()
