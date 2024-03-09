@@ -268,7 +268,7 @@ app.get('/getallproducts', async (req, res) => {
   });
   
 
-  app.post('api/resetPassword', async (req, res) => {
+  app.post('/api/resetPassword', async (req, res) => {
     const { resetToken, newPassword } = req.body;
   
     try {
@@ -294,23 +294,5 @@ app.get('/getallproducts', async (req, res) => {
   });
 
 
-
-
-  function protectRoute(req, res, next) {
-
-  
-    if (req.headers['x-authorization'] === 'YOUR_SECRET_TOKEN') {
-       
-    } else {
-      
-      res.redirect('/');
-    }
-}
-
-
-app.get('/protected-route', protectRoute, (req, res) => {
- 
-  res.send('This is a protected route');
-});
 
 
