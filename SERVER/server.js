@@ -14,13 +14,13 @@ const app  = express()
 
 app.use(express.json())
 app.use(cors({
-<<<<<<< Updated upstream
+
     origin : 'https://foot-wear-one.vercel.app',
-=======
 
-    origin : 'https://shoes-store-two.vercel.app',
 
->>>>>>> Stashed changes
+    
+
+
    
 }))
 app.use(bodyParser.json());
@@ -225,11 +225,7 @@ app.get('/getallproducts', async (req, res) => {
       return res.status(500).json({ success: false, message: 'Internal server error' });
     }
   });
-<<<<<<< Updated upstream
-  
-=======
 
->>>>>>> Stashed changes
 
   app.post('/api/forgotPassword', async (req, res) => {
     const { email } = req.body;
@@ -294,10 +290,9 @@ app.get('/getallproducts', async (req, res) => {
       console.error('Error resetting password:', error);
       res.status(500).json({ message: 'Server error' });
     }
-<<<<<<< Updated upstream
+
   });
-=======
-  });
+
 
 
 
@@ -318,4 +313,4 @@ app.get('/protected-route', protectRoute, (req, res) => {
   res.send('This is a protected route');
 });
 
->>>>>>> Stashed changes
+
