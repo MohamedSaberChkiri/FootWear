@@ -24,9 +24,6 @@ const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
 passwordDB = process.env.DATABASE_PASSWORD
 
 
-
-
-
 app.post("/create-payment-session", async (req, res)=>{
 
     try{
@@ -52,13 +49,9 @@ app.post("/create-payment-session", async (req, res)=>{
             success_url : `${process.env.CLIENT_URL}/success`,
             cancel_url : `${process.env.CLIENT_URL}/cart`,
 
-
-
         })
 
    
-
-
         res.json({url : session.url})
     }catch(e){
         res.status(500).json({error : e.message})
