@@ -5,7 +5,7 @@ import React, { useEffect } from 'react'
 import { CiCircleCheck } from "react-icons/ci";
 
 
-function page() {
+function Page() {
 
   useEffect(() => {
     const isAccess = localStorage.getItem('isAccess');
@@ -36,4 +36,4 @@ function page() {
   )
 }
 
-export default page
+export default Page
