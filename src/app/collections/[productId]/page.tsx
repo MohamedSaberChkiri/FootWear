@@ -2,9 +2,9 @@
 
 import { Button } from "@/components/ui/button"
 import { Rating} from "@mui/material"
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import Divider from '@mui/material/Divider';
-import { useParams } from "next/navigation";
+import { useParams} from "next/navigation";
 import ProductContext from "@/contexts/DbProdcutsContext";
 
 import { useCart } from "@/contexts/CartContext";
@@ -16,7 +16,16 @@ import Recomended from "@/components/Recomended";
 
 
 export default function ItemInfo(){
-    const productId = useParams()
+    const productId = useParams<{ productId: string }>()
+
+    useEffect(() => {
+        const parsedParam = parseInt(productId.productId)
+        if (parsedParam < 1 || parsedParam > 13) {
+            window.location.href = "/"
+        }
+    })
+
+
     const { products } = useContext(ProductContext);
 
     const product = products.find((product) => product.id === productId.productId);
@@ -30,6 +39,7 @@ export default function ItemInfo(){
    
 
 
+        
         
 
 

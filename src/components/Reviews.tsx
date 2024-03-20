@@ -4,7 +4,7 @@ const reviewsData = [
     {
         id: 1,
         image: "https://img.freepik.com/free-photo/portrait-beautiful-mature-blonde-bearded-guy-with-trendy-hairdo-casual-grey-shirt-smiling_176420-15741.jpg?w=1380&t=st=1707571635~exp=1707572235~hmac=324e9edb97739a51280702907b55aaeba8b3f57928c9d9e732475cbaf781b103",
-        name: "Mohamed",
+        name: "Justin",
         country: "Germany",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec semper magna. Phasellus lobortis est vel velit scelerisque. Proin at magna a urna tristique luctus.",
         rating: 5

@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import Link from 'next/link';
+import CircularProgress from '@mui/material/CircularProgress';
 const RegistrationForm: React.FC = () => {
   
 
@@ -13,9 +14,11 @@ const RegistrationForm: React.FC = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
+  const [isLoadingButton , setIsLoadingButton ] = useState(<Button type="submit">Register</Button>)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoadingButton(<Button type="submit" disabled> <CircularProgress className='text-white' size={22} /></Button>)
 
     if (password !== confirmPassword) {
       setError('Passwords do not match');
@@ -24,8 +27,9 @@ const RegistrationForm: React.FC = () => {
 
     try {
       const response = await axios.post('https://foot-wear-server.vercel.app/user/register', { username, email, password });
-      console.log(response.data); 
       
+      setIsLoadingButton(<Button type="submit">Register</Button>) 
+      window.location.href = '/login';
       
     } catch (error) {
       setError('Registration failed');
@@ -59,7 +63,7 @@ const RegistrationForm: React.FC = () => {
         />
       </div>
       {error && <div>{error}</div>}
-      <Button type="submit">Register</Button>
+      {isLoadingButton}
       <Link href='/login'>
         <Button className='bg-transparent w-full hover:bg-transparent text-gray-500 underline'>Already have an Account ?</Button>
       </Link>

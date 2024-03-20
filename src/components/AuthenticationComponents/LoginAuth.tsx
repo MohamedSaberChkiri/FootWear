@@ -5,18 +5,23 @@ import axios from 'axios'; // Assuming you use axios for HTTP requests
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import Link from 'next/link';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
+  const [isLoadingButton , setIsLoadingButton ] = useState(<Button type="submit">Login</Button>)
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoadingButton(<Button type="submit" disabled> <CircularProgress className='text-white' size={22} /></Button>)
 
     try {
       const response = await axios.post('https://foot-wear-server.vercel.app/user/login', { email, password });
       localStorage.setItem('userName', response.data.name);
+      setIsLoadingButton(<Button type="submit">Login</Button>)
      window.location.href = '/';
     } catch (error) {
       setError('Invalid email or password');
@@ -35,7 +40,7 @@ const LoginForm: React.FC = () => {
         <Input type="password" id="password" value={password} placeholder='Password' onChange={(e) => setPassword(e.target.value)} />
       </div>
       {error && <div>{error}</div>}
-      <Button type="submit">Login</Button>
+      {isLoadingButton}
       <div className='flex flex-col'>
       <Link href='/register'>
         <Button className='bg-transparent hover:bg-transparent text-gray-500 h-fit underline'>Dont have an Account ?</Button>

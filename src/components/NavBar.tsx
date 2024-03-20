@@ -31,6 +31,7 @@ import { FaUserPlus } from "react-icons/fa";
 import DisplaySearchedItems from "./DisplaySearchedItems";
 import { Button } from "./ui/button";
 import { Menu, MenuItem } from "@mui/material";
+import { useCart } from "@/contexts/CartContext";
 
 
 
@@ -50,7 +51,8 @@ interface User {
 function NavBar(props : {navStyle: string}){
 
     
-   
+
+    const {cart} = useCart()
     
     const [showSearch, setShowSearch] = useState<boolean>(false)
     const handleShowSearch = ()=>{
@@ -123,7 +125,7 @@ function NavBar(props : {navStyle: string}){
                 <div className="hidden sm:flex items-center justify-between w-fit gap-4 h-12 ">
                <IoSearchOutline className="text-2xl cursor-pointer" onClick={handleShowSearch}/>
                    
-                   <TemporaryDrawer title="YOUR CART"  opener={<IoCartOutline className="text-2xl cursor-pointer" />} contente={<CartPage/>} closeOnClick/>
+                   <TemporaryDrawer title="YOUR CART"  opener={<IoCartOutline className="text-2xl cursor-pointer" />} contente={<CartPage/>} closeOnClick={true} cartLen={cart.length} />
                    
                   {loggedIn === 'true' ? 
                   

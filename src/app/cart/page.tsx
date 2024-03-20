@@ -22,32 +22,42 @@ function Page() {
 
 
 
-    const {  removeFromCart } = useCart();
+    const {  removeFromCart, cart, updateQuantity} = useCart();
     const [cartItems, setCartItems] = useState<CartItem[]>([]);
     const [total, setTotal] = useState(0);
 
-    useEffect(() => {
-        const cartData = localStorage.getItem('cart');
-        if (cartData) {
-            const parsedCartItems: CartItem[] = JSON.parse(cartData);
-            setCartItems(parsedCartItems);
 
-            // Calculate total
+ 
+
+   
+   
+
+    useEffect(() => {
+      
+        const cartData = cart
+        if (cartData) {
+            setCartItems(cartData);
             let totalPrice = 0;
-            parsedCartItems.forEach(item => {
+            cartData.forEach(item => {
                 totalPrice += item.price * item.quantity;
             });
             setTotal(totalPrice);
         }
-    }, []);
+    });
+
+
+    
 
     const handleRemoveFromCart = (productId: string) => {
-        const userId = localStorage.getItem('userName');
+        const  userId = window.localStorage.getItem('userName');
         if(!userId) return;
+        
         removeFromCart(userId, productId);
-        window.location.reload()
+       
     };
 
+    
+  
 
 
         {/* ----------------------API START------------------------------ */}
@@ -61,7 +71,6 @@ function Page() {
                     name: item.name,
                 }));
                     const handleSubmit = async () => {
-                
                     try {
                         
                         
@@ -73,6 +82,7 @@ function Page() {
                 
                         if (response.ok) {
                             const responseData = await response.json();
+                            window.localStorage.setItem('isAccess', 'true')
                             window.location = responseData.url
 
                         } else {
@@ -103,6 +113,12 @@ function Page() {
                                     <h3 className='flex flex-wrap'>{item.name}</h3>
                                 </div>
                                 <div className='flex items-center justify-around flex-wrap gap-4'>
+                                    <div> 
+                                    <Button className='bg-transparent text-black text-xl hover:bg-transparent' onClick={()=> { 
+                                        if (item.quantity > 1) {updateQuantity(item.id, item.quantity - 1)}}}>-</Button>
+                                     {item.quantity} 
+                                     <Button className='bg-transparent text-black text-xl hover:bg-transparent' onClick={()=> { if (item.quantity < 10) {updateQuantity(item.id, item.quantity + 1)} }}>+</Button>
+                                     </div>
                                     <p className='text-green-700 font-bold'>${item.price * item.quantity}</p>
                                     <Button className='w-fit p-0 bg-transparent text-red-600 hover:bg-transparent h-[3vh]' onClick={() => handleRemoveFromCart(item.id)}>REMOVE</Button>
                                 </div>
@@ -117,7 +133,7 @@ function Page() {
                         <div className='flex flex-col items-start justify-center'>
                             <p className='font-bold'>Total: <span className='font-bold text-green-700'> ${total}</span></p>
                             <p className='text-gray-500 text-[14px]'>Taxes and shipping included</p>
-                            <Button className='rounded-none bg-green-800 hover:bg-green-700 mt-[5vh] w-full' onClick={handleSubmit}>Check Out</Button>
+                            <Button className='w-full py-6 mt-4 bg-black text-white hover:bg-black h-[3vh]' onClick={handleSubmit}>CHECKOUT</Button>
                         </div>
                     </div>
                 </div>

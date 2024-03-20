@@ -4,8 +4,7 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
-import Link from 'next/link';
-import { Button } from './ui/button';
+import Badge from '@mui/material/Badge';
 
 type Anchor = 'right';
 
@@ -14,6 +13,7 @@ interface DrawerProps {
   opener: React.ReactNode;
   contente: React.ReactNode;
   closeOnClick?: boolean;
+  cartLen?: number;
 }
 
 export default function TemporaryDrawer(props: DrawerProps) {
@@ -54,8 +54,9 @@ export default function TemporaryDrawer(props: DrawerProps) {
     <div>
       {(['right'] as const).map((anchor) => (
         <React.Fragment key={anchor}>
+          <Badge badgeContent={props.cartLen} color="primary" >
           <div onClick={handleOpen}>{props.opener}</div>
-
+          </Badge>
           <Drawer anchor={anchor} open={state[anchor]} onClose={handleClose}>
             {list(anchor)}
           </Drawer>

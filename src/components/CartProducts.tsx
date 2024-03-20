@@ -1,22 +1,33 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import { Button } from './ui/button'; // Adjust path
-import { useCart } from '../contexts/CartContext'; // Adjust path
+import { Button } from './ui/button'; 
+import { useCart } from '../contexts/CartContext'; 
 import Link from 'next/link';
 
 
+
+interface CartItem {
+  id: string;
+  name: string;
+  price: number;
+  backgroundLink: string;
+  manufacturer: string;
+  category: string;
+  currentStock: number;
+  description: string;
+  quantity: number;
+}
+
 const CartPage: React.FC = () => {
     
-  const { removeFromCart } = useCart();
+  const { removeFromCart ,cart} = useCart();
 
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   useEffect(() => {
-    const cartData = localStorage.getItem('cart');
-    if (cartData) {
-      const parsedCartItems = JSON.parse(cartData);
-      setCartItems(parsedCartItems);
-    }
+    
+      setCartItems(cart);
+    
    
   }, []);
 

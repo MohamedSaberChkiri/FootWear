@@ -3,15 +3,18 @@ import React, { FormEvent, useState } from 'react'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import axios from 'axios';
+import CircularProgress from '@mui/material/CircularProgress';
 
 function ResetPassAuth() {
 
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [isLoadingButton , setIsLoadingButton ] = useState(<Button type="submit">Reset Password</Button>)
+
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-  
+    setIsLoadingButton(<Button type="submit" disabled> <CircularProgress className='text-white' size={22} /></Button>)
     try {
       const response = await axios.post(
         'https://foot-wear-server.vercel.app/api/forgotPassword',
@@ -20,7 +23,8 @@ function ResetPassAuth() {
         }
       );
   
-      setMessage(response.data.message); // Access data directly from response
+      setMessage(response.data.message); 
+      setIsLoadingButton(<Button type="submit">Reset Password</Button>)
     } catch (error) {
       console.error('Error:', error);
       setMessage('An error occurred. Please try again later.');
@@ -34,7 +38,7 @@ function ResetPassAuth() {
     <form onSubmit={handleSubmit} className='mx-auto border flex flex-col items-left justify-center w-fit gap-6 p-12 mt-12'>
       <p className=' w-full text-xl flex items-center justify-center'>RESET PASSWORD</p>
       <Input className='w-[300px]' value={email} type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required></Input>
-      <Button type="submit">Reset Password</Button>
+      {isLoadingButton}
       <div> {message} </div>
     </form>
   )

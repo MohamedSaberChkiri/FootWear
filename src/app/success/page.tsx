@@ -1,10 +1,28 @@
+"use client"
 import { Button } from '@/components/ui/button'
 import Link from 'next/link';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { CiCircleCheck } from "react-icons/ci";
 
 
 function page() {
+
+  useEffect(() => {
+    const isAccess = localStorage.getItem('isAccess');
+
+    if (isAccess) {
+      // Allow access to the page
+      setTimeout(() => {
+        localStorage.removeItem('isAccess');
+      }, 5000);
+    } else {
+      // Redirect user to home page
+      window.location.href = '/';
+    }
+  }, []);
+
+
+
   return (
     <div className='w-full h-[100vh] bg-green-100 flex flex-col items-center justify-center'>
         <div className='flex flex-col items-center justify-center max-w-[460px] p-4 gap-6 animate-fad'>

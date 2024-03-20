@@ -13,16 +13,11 @@ const nodemailer = require('nodemailer');
 const app  = express()
 
 app.use(express.json())
+
 app.use(cors({
-
-    origin : 'https://foot-wear-one.vercel.app',
-
-
-    
-
-
-   
+   origin : 'https://foot-wear-one.vercel.app'
 }))
+
 app.use(bodyParser.json());
 
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
@@ -61,6 +56,7 @@ app.post("/create-payment-session", async (req, res)=>{
 
         })
 
+   
 
 
         res.json({url : session.url})
@@ -171,6 +167,45 @@ app.get('/getallproducts', async (req, res) => {
   });
   
  
+  app.get('/getUserCart/:userId', async (req, res) => {
+    const userId = req.params.userId;
+
+    try {
+      const user = await User.findOne({ username: userId });
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+      
+      const userItems = user.cart.map(item => ({ productId: item.productId, quantity: item.quantity }));
+      
+      // Retrieve products based on product IDs
+      const products = await Product.find({ id: { $in: userItems.map(item => item.productId) } });
+      
+      // Map over products and update quantities based on user's cart
+      const updatedProducts = products.map(product => {
+        const userCartItem = userItems.find(item => item.productId === product.id);
+        if (userCartItem) {
+          // If the product is found in the user's cart, update its quantity
+          return {
+            ...product.toObject(), // Convert Mongoose document to plain JavaScript object
+            quantity: userCartItem.quantity
+          };
+        } else {
+          // If the product is not found in the user's cart, keep the product as is
+          return product.toObject();
+        }
+      });
+    
+      res.json(updatedProducts);
+    } catch (error) {
+      console.error("Error getting products:", error);
+      res.status(500).json({ error: 'Error getting products' });
+    }
+    
+      
+      
+    
+  })
 
   app.post('/api/addToCart/:userId/:productId', async (req, res) => {
     const userId = req.params.userId;
@@ -185,7 +220,15 @@ app.get('/getallproducts', async (req, res) => {
         return res.status(404).json({ success: false, message: 'User not found' });
       }
   
-      // Add item to user's cart
+      // Check if the item is already in the user's cart
+      const index = user.cart.findIndex(item => item.productId === productId);
+
+      if (index !== -1) { 
+        user.cart[index].quantity += quantity; 
+        await user.save(); 
+        return res.status(200).json({ success: true, message: 'Item added to cart successfully' });
+      }
+
       user.cart.push({ productId, quantity });
       await user.save();
   
@@ -201,7 +244,6 @@ app.get('/getallproducts', async (req, res) => {
       const userId = req.params.userId;
       const productId = req.params.productId;
   
-      // Find the user by userId
       const user = await User.findOne({ username: userId });
   
       if (!user) {
@@ -295,4 +337,26 @@ app.get('/getallproducts', async (req, res) => {
 
 
 
-
+app.patch('/api/updateQuantity/:userId/:productId', async (req, res) => {
+    const userId = req.params.userId;
+    const productId = req.params.productId;
+    const { quantity } = req.body;
+  
+    try {
+      const user = await User.findOne({ username: userId });
+      if (!user) {
+        return res.status(404).json({ success: false, message: 'User not found' });
+      }
+      const index = user.cart.findIndex(item => item.productId === productId);
+      if (index === -1) {
+        return res.status(404).json({ success: false, message: 'Item not found in the user\'s cart' });
+      }
+      user.cart[index].quantity = quantity;
+      await user.save();
+      return res.status(200).json({ success: true, message: 'Cart updated successfully' });
+    } catch (error) {
+      console.error('Error updating cart:', error);
+      return res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+  }
+  );
