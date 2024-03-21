@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export function middleware() {
 
-    const isSuccessful = localStorage.getItem("isAccess");
+    const isSuccessful = window.localStorage.getItem("isAccess");
     if(!isSuccessful) {
         return NextResponse.redirect("/");
     }
