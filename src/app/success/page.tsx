@@ -8,10 +8,17 @@ import { CiCircleCheck } from "react-icons/ci";
 function Page() {
 
   useEffect(() => {
+    const isAccess = localStorage.getItem('isAccess');
+
+    if (isAccess) {
+      // Allow access to the page
       setTimeout(() => {
         localStorage.removeItem('isAccess');
-      }, 3000);
-   
+      }, 5000);
+    } else {
+      // Redirect user to home page
+      window.location.href = '/';
+    }
   }, []);
 
 
