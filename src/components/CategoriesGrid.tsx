@@ -23,7 +23,7 @@ export default function CategoriesGrid(){
                     onMouseEnter={() => setHoveredIndex(0)}
                     onMouseLeave={() => setHoveredIndex(null)}
                 >
-                    <Link href='/collections'>
+                    <Link href='/collections?collection=all'>
                     <div className={`absolute cursor-pointer inset-0 bg-black bg-opacity-90 duration-500 flex items-center justify-center ${hoveredIndex === 0 ? 'opacity-100' : 'opacity-0'}`}>
                     
                     <p className="text-white text-center text-2xl font-bold">SHOES COLLECTION</p>
@@ -39,7 +39,7 @@ export default function CategoriesGrid(){
                 onMouseLeave={() => setHoveredIndex(null)}
                 data-aos='fade-up'
             >
-                <Link href='/collections'>
+                <Link href='/collections?collection=Men'>
                 <div className={`absolute inset-0 cursor-pointer bg-black bg-opacity-90 flex duration-300 items-center justify-center ${hoveredIndex === 1 ? 'opacity-100' : 'opacity-0'}`}>
                     <p className="text-white text-center text-2xl font-bold">MEN COLLECTION</p>
                 </div>
@@ -51,7 +51,7 @@ export default function CategoriesGrid(){
                 onMouseLeave={() => setHoveredIndex(null)}
                 data-aos='fade-up'
             >
-                <Link href='/collections'>
+                <Link href='/collections?collection=Women'>
                 <div className={`absolute cursor-pointer  inset-0 bg-black bg-opacity-90 flex duration-300 items-center justify-center ${hoveredIndex === 2 ? 'opacity-100' : 'opacity-0'}`}>
                     <p className="text-white text-center text-2xl font-bold">WOMEN COLLECTION</p>
                 </div>
@@ -63,7 +63,7 @@ export default function CategoriesGrid(){
                 onMouseLeave={() => setHoveredIndex(null)}
                 data-aos='fade-up'
             >   
-            <Link href='/collections'>
+            <Link href='/collections?collection=Kids'>
                 <div className={`absolute inset-0 bg-black cursor-pointer bg-opacity-90 flex duration-300 items-center justify-center ${hoveredIndex === 3 ? 'opacity-100' : 'opacity-0'}`}>
                     <p className="text-white text-center text-2xl font-bold">KIDS COLLECTION</p>
                 </div>
@@ -75,7 +75,7 @@ export default function CategoriesGrid(){
                 onMouseLeave={() => setHoveredIndex(null)}
                 data-aos='fade-up'
             >
-                <Link href='/collections'>
+                <Link href='/collections?collection=New'>
                 <div className={`absolute inset-0 bg-black cursor-pointer bg-opacity-90 flex duration-300 items-center justify-center ${hoveredIndex === 4 ? 'opacity-100' : 'opacity-0'}`}>
                     <p className="text-white text-center text-2xl font-bold">NEW ARRIVALS</p>
                 </div>

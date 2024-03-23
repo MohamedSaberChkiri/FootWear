@@ -25,6 +25,7 @@ function ResetPassAuth() {
   
       setMessage(response.data.message); 
       setIsLoadingButton(<Button type="submit">Reset Password</Button>)
+      window.location.href = '/login';
     } catch (error) {
       console.error('Error:', error);
       setMessage('An error occurred. Please try again later.');

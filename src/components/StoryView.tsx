@@ -1,4 +1,5 @@
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
+import { Dialog, DialogContent, DialogTrigger } from './ui/dialog';
 
 
 
@@ -14,7 +15,26 @@ export default function StoryView(){
             </div>
 
             <div className="hover:border-b-2 cursor-pointer text-white z-20">
-                <PlayCircleIcon className='text-white cursor-pointer text-6xl'/> WATCH OUR STORY
+                
+                <Dialog >
+                    <DialogTrigger>
+                    <PlayCircleIcon className='text-white cursor-pointer text-6xl'/> 
+                         WATCH OUR STORY
+                    </DialogTrigger>
+                    <DialogContent className='w-fit h-fit p-4 flex items-center justify-center'>
+                        <iframe
+                            width="560"
+                            height="315"
+                            src="https://www.youtube.com/embed/sbv9AwKVKEo?si=ctAMK0i6H4XxZuJc"
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        ></iframe>
+                    </DialogContent>
+                    </Dialog>
+
+              
             </div>
         </div>
     )

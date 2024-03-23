@@ -22,6 +22,7 @@ interface CartContextType {
   addToCart: (userId: string, product: Product, quantity: number) => void;
   removeFromCart: (userId: string, productId: string) => void;
   updateQuantity: (productId: string, quantity: number) => void;
+  fetchUserCart: () => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -39,25 +40,24 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [cart, setCart] = useState<CartItem[]>([]);
 
 
+  const fetchUserCart = async () => {
+    try {
+      const userId = localStorage.getItem('userName') 
+      if (!userId) {
+       
+        return;
+      }
+
+      const response = await axios.get(`https://foot-wear-server.vercel.app/getUserCart/${userId}`);
+      const fetchedCart = response.data; 
+      setCart(fetchedCart);
+    } catch (error) {
+      console.error('Error fetching user cart:', error);
+    }
+  };
 
   useEffect(() => {
-    const fetchUserCart = async () => {
-      try {
-        const userId = localStorage.getItem('userName') 
-        if (!userId) {
-         
-          return;
-        }
-  
-        const response = await axios.get(`https://foot-wear-server.vercel.app/getUserCart/${userId}`);
-        const fetchedCart = response.data; 
-       
-        console.log('fetchedCart:', fetchedCart);
-      } catch (error) {
-        console.error('Error fetching user cart:', error);
-      }
-    };
-  
+   
     fetchUserCart();
   }, []);
 
@@ -113,7 +113,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, fetchUserCart }}>
       {children}
     </CartContext.Provider>
   );

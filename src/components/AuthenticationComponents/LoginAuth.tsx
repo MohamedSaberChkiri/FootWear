@@ -1,17 +1,25 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios'; // Assuming you use axios for HTTP requests
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import Link from 'next/link';
 import CircularProgress from '@mui/material/CircularProgress';
+import { useCart } from '@/contexts/CartContext';
 
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [isLoadingButton , setIsLoadingButton ] = useState(<Button type="submit">Login</Button>)
+  const { fetchUserCart } = useCart();
+
+  useEffect
+  (() => {
+    fetchUserCart();
+  }, []);
+
 
 
   const handleSubmit = async (e: React.FormEvent) => {

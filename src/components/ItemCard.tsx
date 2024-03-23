@@ -5,7 +5,7 @@ import {FaArrowCircleRight} from "react-icons/fa"
 export default function ItemCard(props: {
     title? : string,
     subTitle? : string,
-    price? : number,
+    price : number,
     image?: string,
     productId? : string
     style? : string
@@ -25,7 +25,7 @@ export default function ItemCard(props: {
             </div>
             
             <div className="flex items-center justify-between w-full">
-                <div className="font-bold">${props.price}</div>
+                <div className="font-bold">${props.price} <span className="text-gray-400 line-through text-[13px]"> ${props.price * 2} </span></div>
                 <div><FaArrowCircleRight className="cursor-pointer text-xl"/></div>
             </div>
             

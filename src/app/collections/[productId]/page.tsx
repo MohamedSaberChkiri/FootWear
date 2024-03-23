@@ -15,14 +15,20 @@ import Recomended from "@/components/Recomended";
 
 
 
+
 export default function ItemInfo(){
     const productId = useParams<{ productId: string }>()
+   
+
+
 
     useEffect(() => {
         const parsedParam = parseInt(productId.productId)
         if (parsedParam < 1 || parsedParam > 13) {
             window.location.href = "/"
         }
+
+        
     })
 
 
@@ -103,7 +109,7 @@ export default function ItemInfo(){
                 <div className="w-[40rem] h-[40rem] flex flex-col items-start justify-around  p-[4vh]">
                             <Rating name="read-only" value={5} readOnly/>
                                     <p className="text-5xl font-bold">{product.name}</p>
-                                    <p className="font-bold text-xl">${product.price}</p>
+                                    <p className="font-bold text-xl text-green-600">${product.price} <span className="text-[13px] text-gray-500 line-through"> ${product.price * 2} </span></p>
                                         <div className="flex items-center justify-center gap-4">
                                             <div className="flex items-center font-bold justify-around w-[150px] h-[5vh] border-black border">
                                                 <button onClick={RmCon} >-</button>
