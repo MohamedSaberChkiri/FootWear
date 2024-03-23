@@ -7,24 +7,28 @@ import ProductContext from '@/contexts/DbProdcutsContext';
 import { useSearchParams } from 'next/navigation';
 
 export default function HomeBrowser() {
+
+
   const { products } = useContext(ProductContext);
-  const searchParams = useSearchParams();
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedCategory, setSelectedCategory] = useState('all')
+      const searchParams = useSearchParams();
+        
+         
+        useEffect(() => {
+          const category = searchParams.get('collection');
+          if (category) {
+            const collection = category.charAt(0).toUpperCase() + category.slice(1);
+            setSelectedCategory(collection);
+          }
+        }, [searchParams]);
 
-  useEffect(() => {
-    const category = searchParams.get('collection');
-    if (category) {
-      const collection = category.charAt(0).toUpperCase() + category.slice(1);
-      setSelectedCategory(collection);
-    }
-  }, [searchParams]);
+        const handleCategoryClick = (category: string) => {
+          setSelectedCategory(category);
+        };
 
-  const handleCategoryClick = (category: string) => {
-    setSelectedCategory(category);
-  };
+        const filteredItems = selectedCategory === 'all' ? products : products.filter(item => item.category === selectedCategory);
 
-  const filteredItems = selectedCategory === 'all' ? products : products.filter(item => item.category === selectedCategory);
-
+   
   return (
     <div className="mt-[100px] mb-[100px] mx-auto w-full flex flex-col animate-fad">
       <div className="w-full h-[4vh] flex items-center justify-center flex-wrap gap-2">

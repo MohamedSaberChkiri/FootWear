@@ -1,12 +1,15 @@
 import HomeBrowser from '@/components/HomeBrowser'
-import React from 'react'
+import React, { Suspense } from 'react'
 
 function page() {
   return (
     <div>
 
 
-        <HomeBrowser/>
+        <Suspense fallback={<>Loading...</>}>
+             <HomeBrowser/>
+        </Suspense>
+
     </div>
   )
 }
