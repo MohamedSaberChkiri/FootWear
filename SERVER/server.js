@@ -15,8 +15,8 @@ const app  = express()
 app.use(express.json())
 
 app.use(cors({
-   // origin : 'https://foot-wear-one.vercel.app'
-    origin : 'http://localhost:3000'
+  origin : 'https://foot-wear-one.vercel.app'
+   
 }))
 
 app.use(bodyParser.json());
