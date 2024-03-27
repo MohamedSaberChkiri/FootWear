@@ -21,10 +21,10 @@ export default function StoryView(){
                     <PlayCircleIcon className='text-white cursor-pointer text-6xl'/> 
                          WATCH OUR STORY
                     </DialogTrigger>
-                    <DialogContent className='w-fit h-fit p-4 flex items-center justify-center'>
+                    <DialogContent className='w-fit h-fit sm:p-4 flex items-center justify-center sm:w-[560px] sm:h-[315px] w-[90%] p-0 h-[250px]'>
                         <iframe
-                            width="560"
-                            height="315"
+                            width="100%"
+                            height="100%"
                             src="https://www.youtube.com/embed/sbv9AwKVKEo?si=ctAMK0i6H4XxZuJc"
                             title="YouTube video player"
                             frameBorder="0"

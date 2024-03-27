@@ -22,7 +22,7 @@ export default function Footer(){
                     <div className="flex flex-col items-center sm:items-start justify-center gap-12 max-w-[600px]">
                         <p className="text-white text-xl sm:text-2xl text-center sm:text-start font-bold">SUBSCRIBE TODAY AND BE THE FIRST TO KNOW ABOUT NEW ARRIVALS</p>
                         <div className="flex items-center justify-center h-[5vh]">
-                            <input type="email" className="text-white bg-transparent outline-none border-b-2 border-white w-[250px] h-full" placeholder="EMAIL"/>
+                            <input type="email" className="text-white bg-transparent outline-none border-b-2 border-white w-[250px] h-full rounded-none" placeholder="EMAIL"/>
                             <Button className="border-b-2 border-white rounded-none h-full bg-transparent hover:bg-transparent">SUBSCRIBE</Button>
                             </div>
                          
@@ -34,7 +34,7 @@ export default function Footer(){
                             <PinterestIcon className="cursor-pointer"/>
 
                         </div>
-                        <p className="text-gray-500 text-[13px]">MADE WITH BY <FavoriteIcon className="text-white text-[16px]"/> MOHAMED SABER CHKIRI</p>
+                        <p className="text-gray-500 text-[13px]">MADE WITH <FavoriteIcon className="text-white text-[16px]"/> BY MOHAMED SABER CHKIRI</p>
                     </div>
                     
                     

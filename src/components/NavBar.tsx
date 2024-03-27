@@ -85,7 +85,7 @@ function NavBar(props : {navStyle: string}){
         <div className={cn("w-full h-24 flex items-center justify-around bg-neutral-900	 text-white ", props.navStyle)}>
 
 
-                <Link href="/" className="w-fit h-fit"><div className="logo"></div></Link>
+                <Link href="/" ><div className="logo py-6"></div></Link>
                 
 
                 <div className="hidden sm:flex sm:gap-4">
@@ -114,9 +114,9 @@ function NavBar(props : {navStyle: string}){
                         }}
                       >
                         
-                        <Link href='/collections'>   <MenuItem onClick={handleClose}>Men Sneakers</MenuItem></Link>
-                        <Link href='/collections'>   <MenuItem onClick={handleClose}>Women Sneakers</MenuItem></Link>
-                        <Link href='/collections'> <MenuItem onClick={handleClose}>kids Sneaker</MenuItem></Link>
+                        <Link href='/collections?collection=men'>   <MenuItem onClick={handleClose}>Men Sneakers</MenuItem></Link>
+                        <Link href='/collections?collection=women'>   <MenuItem onClick={handleClose}>Women Sneakers</MenuItem></Link>
+                        <Link href='/collections?collection=kids'> <MenuItem onClick={handleClose}>kids Sneaker</MenuItem></Link>
                       </Menu>
                     </div>
                     <Link href='/contact'> <Button className="bg-transparent hover:bg-white hover:text-black  duration-200">Contact Us</Button></Link>
