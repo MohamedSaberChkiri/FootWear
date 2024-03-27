@@ -43,7 +43,7 @@ export default function Home() {
         <p className="text-5xl font-bold">Get 5$ off</p>
         <p className="text-gray-500">when you sign up for our newsletter</p>
         <Input className="w-[250px]" type="email" placeholder="Enter your email address"/>
-        <Button className="w-[250px] font-bold"> LET'S GO </Button>
+        <Button className="w-[250px] font-bold"> LET&apos;S GO </Button>
       
       </DialogContent>
     </Dialog>}
