@@ -23,7 +23,7 @@ const HomeFeaturedItemsContainer: React.FC = () => {
     return (
         <div className="w-fit h-fit mx-auto gap-[2rem] items-center justify-around flex mt-28 mb-[4rem] flex-wrap" data-aos='fade-up'>
             {products ?
-            <div>
+            <div className="flex items-center justify-around">
             {firstFourProducts.map(product => (
                 <ItemCard
                     key={product.id}
