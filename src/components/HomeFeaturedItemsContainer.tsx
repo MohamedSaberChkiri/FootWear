@@ -12,18 +12,20 @@ const HomeFeaturedItemsContainer: React.FC = () => {
 
     const { products } = useContext(ProductContext);
 
+
     // Extract the first 4 products from the products array
     const firstFourProducts = products.slice(0, 4);
     useEffect(()=>{
         Aos.init({duration : 1000})
+        console.log(products)
     },[])
 
 
 
     return (
-        <div className="w-fit h-fit mx-auto gap-[2rem] items-center justify-around flex mt-28 mb-[4rem] flex-wrap" data-aos='fade-up'>
-            {products ?
-            <div className="flex items-center justify-around">
+        <div  data-aos='fade-up'>
+            {products.length > 0 ?
+            <div className="w-fit h-fit mx-auto gap-[2rem] items-center justify-around flex mt-28 mb-[4rem] flex-wrap">
             {firstFourProducts.map(product => (
                 <ItemCard
                     key={product.id}
@@ -36,7 +38,7 @@ const HomeFeaturedItemsContainer: React.FC = () => {
             ))}
             </div>
 
-           : <div className="flex items-center justify-around">
+           : <div className="w-fit h-fit mx-auto gap-[2rem] items-center justify-around flex mt-28 mb-[4rem] flex-wrap">
              <ItemLoadingSkeleton/>
              <ItemLoadingSkeleton/>
              <ItemLoadingSkeleton/>
