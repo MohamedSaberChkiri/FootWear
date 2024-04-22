@@ -5,6 +5,7 @@ import { useContext, useEffect } from "react";
 import React from 'react';
 import ProductContext from '@/contexts/DbProdcutsContext';
 import ItemCard from './ItemCard';
+import ItemLoadingSkeleton from "./ItemLoadingSkeleton";
 
 
 const HomeFeaturedItemsContainer: React.FC = () => {
@@ -21,7 +22,8 @@ const HomeFeaturedItemsContainer: React.FC = () => {
 
     return (
         <div className="w-fit h-fit mx-auto gap-[2rem] items-center justify-around flex mt-28 mb-[4rem] flex-wrap" data-aos='fade-up'>
-            {/* Map over the first 4 products and render an ItemCard for each one */}
+            {products ?
+            <div>
             {firstFourProducts.map(product => (
                 <ItemCard
                     key={product.id}
@@ -32,6 +34,15 @@ const HomeFeaturedItemsContainer: React.FC = () => {
                     productId={product.id}
                 />
             ))}
+            </div>
+
+           : <div className="flex items-center justify-around">
+             <ItemLoadingSkeleton/>
+             <ItemLoadingSkeleton/>
+             <ItemLoadingSkeleton/>
+             <ItemLoadingSkeleton/>
+            </div>}
+            
         </div>
     );
 };

@@ -1,7 +1,7 @@
 'use client'
 
 import axios from 'axios';
-import React, { createContext, useState, useEffect, useContext, PropsWithChildren } from 'react';
+import React, { createContext, useState, useEffect, useContext, PropsWithChildren, ReactNode } from 'react';
 
 // Define the product type
 interface Product {
@@ -18,7 +18,7 @@ interface Product {
 
 // Define the context type
 interface ProductContextType {
-  products: Product[];
+  products: Product[] ;
   setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
 }
 
@@ -34,6 +34,7 @@ export const useProductContext = () => useContext(ProductContext);
 // Create a provider component
 export const ProductProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   const [products, setProducts] = useState<Product[]>([]);
+  
 
   useEffect(() => {
     // Fetch products from backend endpoint when component mounts
