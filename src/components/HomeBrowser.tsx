@@ -14,19 +14,18 @@ export default function HomeBrowser() {
       const searchParams = useSearchParams();
         
          
-        useEffect(() => {
-          const category = searchParams.get('collection');
-          if (category) {
-            const collection = category.charAt(0).toUpperCase() + category.slice(1);
-            setSelectedCategory(collection);
-          }
-        }, [searchParams]);
+      useEffect(() => {
+        const initialCategory = searchParams.get('collection');
+        if (initialCategory) setSelectedCategory(initialCategory?.charAt(0).toUpperCase() + initialCategory?.slice(1).toLowerCase() || 'all');
+      }, [searchParams]);
 
         const handleCategoryClick = (category: string) => {
           setSelectedCategory(category);
         };
 
-        const filteredItems = selectedCategory === 'all' ? products : products.filter(item => item.category === selectedCategory);
+        const filteredItems = selectedCategory.toLowerCase() === 'all' ? products : products.filter(item => item.category.toLowerCase() === selectedCategory.toLowerCase());
+
+
 
    
   return (
@@ -39,7 +38,7 @@ export default function HomeBrowser() {
             className='focus:bg-gray-100'
             onClick={() => handleCategoryClick(category)}
           >
-            {category.charAt(0).toUpperCase() + category.slice(1)}
+            {category.charAt(0).toUpperCase() + category.slice(1).toLowerCase()}
           </Button>
         ))}
       </div>

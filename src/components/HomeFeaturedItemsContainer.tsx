@@ -17,7 +17,7 @@ const HomeFeaturedItemsContainer: React.FC = () => {
     const firstFourProducts = products.slice(0, 4);
     useEffect(()=>{
         Aos.init({duration : 1000})
-        console.log(products)
+     
     },[])
 
 
