@@ -39,6 +39,7 @@ const LoginForm: React.FC = () => {
       setIsLoadingButton(<Button type="submit">Login</Button>);
       window.location.href = "/";
     } catch (error) {
+      setIsLoadingButton(<Button type="submit">Login</Button>);
       setError("Invalid email or password");
     }
   };
