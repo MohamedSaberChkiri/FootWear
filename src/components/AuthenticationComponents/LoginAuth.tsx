@@ -35,7 +35,8 @@ const LoginForm: React.FC = () => {
         "https://foot-wear-server.vercel.app/user/login",
         { email, password }
       );
-      localStorage.setItem("userName", response.data.token);
+      localStorage.setItem("userName", response.data.userName);
+      localStorage.setItem("token", response.data.token);
       setIsLoadingButton(<Button type="submit">Login</Button>);
       window.location.href = "/";
     } catch (error) {
