@@ -14,10 +14,7 @@ const app = express();
 
 app.use(express.json());
 
-const allowedOrigins = [
-  "https://foot-wear-one.vercel.app",
-  "http://localhost:3000",
-];
+const allowedOrigins = ["https://foot-wear-one.vercel.app"];
 
 const corsOptions = {
   origin: function (origin, callback) {

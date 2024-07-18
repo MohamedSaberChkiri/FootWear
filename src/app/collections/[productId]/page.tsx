@@ -15,17 +15,12 @@ import Recomended from "@/components/Recomended";
 export default function ItemInfo() {
   const productId = useParams<{ productId: string }>();
 
-  useEffect(() => {
-    const parsedParam = parseInt(productId.productId);
-    if (parsedParam < 1 || parsedParam > 13) {
-      window.location.href = "/";
-    }
-  });
+  const FormedParam = productId.productId.split("-").join(" ");
 
   const { products } = useContext(ProductContext);
 
   const product = products.find(
-    (product) => product.id === productId.productId
+    (product) => product.name.toLowerCase() === FormedParam
   );
   const { addToCart } = useCart();
   const [open, setOpen] = useState(false);
