@@ -2,69 +2,93 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-.animate-fad{
-  animation: fade-in .2s ease-in;
+.animate-fad {
+  animation: fade-in 0.2s ease-in;
 }
-  @keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
+@keyframes fade-in {
+  from {
+    opacity: 0;
   }
-.logo{
-  background-image: url('../components/sources/logo.png');
+  to {
+    opacity: 1;
+  }
+}
+.logo {
+  background-image: url("../components/sources/logo.png");
   width: 250px;
   height: 5vh;
   background-position: right;
   background-size: 300px;
-  
 }
 
-.sneaker{
-  background-image: url('https://freepngimg.com/save/58296-yeezy-sneakers-originals-adidas-shoe-png-file-hd/750x650');
+.sneaker {
+  background-image: url("https://freepngimg.com/save/58296-yeezy-sneakers-originals-adidas-shoe-png-file-hd/750x650");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
-.men-sneaker-col,.woman-sneaker-col,.kids-sneaker-col,.main-sneaker, .new-sneaker-col{
+.men-sneaker-col,
+.woman-sneaker-col,
+.kids-sneaker-col,
+.main-sneaker,
+.new-sneaker-col {
   background-size: cover;
-  
+
   background-position: center;
 }
 
-.main-sneaker{
-  background-image: url('../components/sources/sneaker-main.jpg');
- 
+.main-sneaker {
+  background-image: url("../components/sources/sneaker-main.jpg");
 }
-.men-sneaker-col{background-image: url('../components/sources/men-sneaker-col.jpg');}
-.woman-sneaker-col{background-image: url('../components/sources/women-sneaker-col.jpg');}
-.kids-sneaker-col{background-image: url('../components/sources/kids-sneaker-col.jpg');}
-.new-sneaker-col{background-image: url('../components/sources/new-sneaker-col.jpg');} 
+.men-sneaker-col {
+  background-image: url("../components/sources/men-sneaker-col.jpg");
+}
+.woman-sneaker-col {
+  background-image: url("../components/sources/women-sneaker-col.jpg");
+}
+.kids-sneaker-col {
+  background-image: url("../components/sources/kids-sneaker-col.jpg");
+}
+.new-sneaker-col {
+  background-image: url("../components/sources/new-sneaker-col.jpg");
+}
 
-.storydiv, .storydiv1, .storydiv2, .storydiv3, .storydiv4, .storydiv5, .storydiv6, .storydiv7{
+.storydiv,
+.storydiv1,
+.storydiv2,
+.storydiv3,
+.storydiv4,
+.storydiv5,
+.storydiv6,
+.storydiv7 {
   background-position: center;
   background-size: cover;
 }
 
-.storydiv{background-image: url('../components/sources/StoryImage.jpg');
+.storydiv {
+  background-image: url("../components/sources/StoryImage.jpg");
 }
-.storydiv1{background-image: url('https://images.unsplash.com/flagged/photo-1556637640-2c80d3201be8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+.storydiv1 {
+  background-image: url("https://images.unsplash.com/flagged/photo-1556637640-2c80d3201be8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 }
-.storydiv2{background-image: url('https://images.unsplash.com/photo-1591550936261-4f22e48d1f03?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+.storydiv2 {
+  background-image: url("https://images.unsplash.com/photo-1591550936261-4f22e48d1f03?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 }
-.storydiv3{background-image: url('https://images.unsplash.com/photo-1530202218-5a52c6d42753?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+.storydiv3 {
+  background-image: url("https://images.unsplash.com/photo-1530202218-5a52c6d42753?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 }
-.storydiv4{background-image: url('https://images.unsplash.com/photo-1514989940723-e8e51635b782?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+.storydiv4 {
+  background-image: url("https://images.unsplash.com/photo-1514989940723-e8e51635b782?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 }
-.storydiv5{background-image: url('https://images.unsplash.com/photo-1549971352-c31ced98e984?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+.storydiv5 {
+  background-image: url("https://images.unsplash.com/photo-1549971352-c31ced98e984?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 }
-.storydiv6{background-image: url('https://images.unsplash.com/photo-1508188239917-0fc5f653cb47?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+.storydiv6 {
+  background-image: url("https://images.unsplash.com/photo-1508188239917-0fc5f653cb47?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 }
-.storydiv7{background-image: url('https://images.unsplash.com/photo-1544754565-5655962dc338?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+.storydiv7 {
+  background-image: url("https://images.unsplash.com/photo-1544754565-5655962dc338?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 }
-
-
-
 
 @layer base {
   :root {
@@ -73,63 +97,63 @@
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
- 
+
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
- 
+
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
- 
+
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
- 
+
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
- 
+
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
- 
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
- 
+
     --radius: 0.5rem;
   }
- 
+
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
- 
+
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
- 
+
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
- 
+
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
- 
+
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
- 
+
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
- 
+
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
- 
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
- 
+
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
   }
 }
- 
+
 @layer base {
   * {
     @apply border-border;
@@ -138,4 +162,3 @@
     @apply bg-background text-foreground;
   }
 }
-
