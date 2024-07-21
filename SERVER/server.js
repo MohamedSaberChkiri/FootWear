@@ -131,7 +131,9 @@ app.post("/user/login", async (req, res) => {
     }
 
     const SerializedUser = { username: user.username };
-    const accessToken = jwt.sign(SerializedUser, process.env.JWT_SECRET);
+    const accessToken = jwt.sign(SerializedUser, process.env.JWT_SECRET, {
+      expiresIn: "30m",
+    });
 
     res.json({ name: user.username, items: user.cart, token: accessToken });
   } catch (error) {
