@@ -95,6 +95,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         {
           headers: {
             Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
           },
         }
       );

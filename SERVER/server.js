@@ -7,6 +7,7 @@ const authRoutes = require("./routes/authRoutes");
 const getProductsRoute = require("./routes/getProductsRoute");
 const resetPasswordRoutes = require("./routes/resetPasswordRoutes");
 const userCartRoutes = require("./routes/userCartRoutes");
+const paymentSession = require("./routes/paymentSession");
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use("/api", authRoutes);
 app.use("/api", getProductsRoute);
 app.use("/api", resetPasswordRoutes);
 app.use("/api", userCartRoutes);
+app.use("/api", paymentSession);
 
 passwordDB = process.env.DATABASE_PASSWORD;
 
