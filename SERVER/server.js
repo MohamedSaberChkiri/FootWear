@@ -6,7 +6,6 @@ const bcrypt = require("bcryptjs");
 const User = require("./database/models/user.model");
 const Product = require("./database/models/product.model");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 
 const jwt = require("jsonwebtoken");
@@ -14,11 +13,11 @@ const app = express();
 
 app.use(express.json());
 
-const allowedOrigins = "https://foot-wear-one.vercel.app";
-
-app.use(cors({ origin: allowedOrigins, credentials: true }));
-
-app.use(bodyParser.json());
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL,
+  })
+);
 
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
 passwordDB = process.env.DATABASE_PASSWORD;
@@ -73,13 +72,23 @@ app.listen(5500, () => {
 
 app.post("/user/register", async (req, res) => {
   const { username, email, password } = req.body;
-
+  console.log(req.body);
   try {
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res
         .status(400)
         .json({ message: "Username or email already exists" });
+    }
+
+    if (!password) {
+      return res.status(400).json({ message: "Password is required" });
+    }
+    if (!username) {
+      return res.status(400).json({ message: "Username is required" });
+    }
+    if (!email) {
+      return res.status(400).json({ message: "Email is required" });
     }
 
     // Hash the password
