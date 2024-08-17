@@ -22,7 +22,7 @@ function ResetPassAuth() {
     );
     try {
       const response = await axios.post(
-        "https://foot-wear-server.vercel.app/api/forgotPassword",
+        "https://foot-wear-server.vercel.app/api/api/forgotPassword",
         {
           email,
         },
