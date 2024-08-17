@@ -49,7 +49,7 @@ router.post("/user/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    // Find the user by email
+    console.log(req.body);
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(401).json({ message: "Invalid email or password" });

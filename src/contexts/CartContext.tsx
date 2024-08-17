@@ -53,7 +53,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
       }
 
       const response = await axios.get(
-        `https://foot-wear-server.vercel.app/getUserCart/${userId}`
+        `https://foot-wear-server.vercel.app/api/getUserCart/${userId}`
       );
       const fetchedCart = response.data;
       setCart(fetchedCart);
