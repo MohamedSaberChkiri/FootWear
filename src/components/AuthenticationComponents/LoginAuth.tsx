@@ -33,7 +33,12 @@ const LoginForm: React.FC = () => {
     try {
       const response = await axios.post(
         "https://foot-wear-server.vercel.app/user/login",
-        { email, password }
+        { email, password },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
       localStorage.setItem("userName", response.data.name);
       localStorage.setItem("token", response.data.token);
