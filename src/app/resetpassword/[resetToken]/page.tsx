@@ -36,6 +36,11 @@ function Page() {
         {
           resetToken,
           newPassword,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
       );
 

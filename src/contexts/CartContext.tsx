@@ -90,7 +90,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
 
       // Send request to server to add item to user's cart using Axios
       await axios.post(
-        `https://foot-wear-server.vercel.app/api/api/addToCart/${userId}/${product.id}`,
+        `https://foot-wear-server.vercel.app/api/addToCart/${userId}/${product.id}`,
         { quantity },
         {
           headers: {
@@ -108,7 +108,12 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
       const updatedCart = cart.filter((item) => item.id !== productId);
       setCart(updatedCart);
       await axios.delete(
-        `https://foot-wear-server.vercel.app/api/api/removeFromCart/${userId}/${productId}`
+        `https://foot-wear-server.vercel.app/api/removeFromCart/${userId}/${productId}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
     } catch (error) {
       console.error("Error removing from cart:", error);
@@ -126,8 +131,13 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
       });
       setCart(updatedCart);
       await axios.patch(
-        `https://foot-wear-server.vercel.app/api/api/updateQuantity/${userId}/${productId}`,
-        { quantity }
+        `https://foot-wear-server.vercel.app/api/updateQuantity/${userId}/${productId}`,
+        { quantity },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
     } catch (error) {
       console.error("Error updating quantity:", error);

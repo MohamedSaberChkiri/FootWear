@@ -48,7 +48,7 @@ router.get("/getUserCart/:userId", async (req, res) => {
 });
 
 router.post(
-  "/api/addToCart/:userId/:productId",
+  "/addToCart/:userId/:productId",
   authenticateToken,
   async (req, res) => {
     const userId = req.params.userId;
@@ -90,7 +90,7 @@ router.post(
   }
 );
 
-router.delete("/api/removeFromCart/:userId/:productId", async (req, res) => {
+router.delete("/removeFromCart/:userId/:productId", async (req, res) => {
   try {
     const userId = req.params.userId;
     const productId = req.params.productId;
@@ -127,7 +127,7 @@ router.delete("/api/removeFromCart/:userId/:productId", async (req, res) => {
   }
 });
 
-router.patch("/api/updateQuantity/:userId/:productId", async (req, res) => {
+router.patch("/updateQuantity/:userId/:productId", async (req, res) => {
   const userId = req.params.userId;
   const productId = req.params.productId;
   const { quantity } = req.body;
