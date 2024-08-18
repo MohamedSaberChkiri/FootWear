@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 
 router.post("/user/register", async (req, res) => {
   const { username, email, password } = req.body;
-  console.log(req.body);
+
   try {
     const existingUser = await User.findOne({ email });
     if (existingUser) {
@@ -49,7 +49,6 @@ router.post("/user/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    console.log(req.body);
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(401).json({ message: "Invalid email or password" });

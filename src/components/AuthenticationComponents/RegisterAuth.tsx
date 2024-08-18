@@ -16,7 +16,60 @@ const RegistrationForm: React.FC = () => {
     <Button type="submit">Register</Button>
   );
 
+  const [isEightCharacters, setIsEightCharacters] = useState(false);
+  const [isLowerCase, setIsLowerCase] = useState(false);
+  const [isUpperCase, setIsUpperCase] = useState(false);
+  const [isNumber, setIsNumber] = useState(false);
+  const [isSpecialCharacter, setIsSpecialCharacter] = useState(false);
+
+  const handlePassowrdChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+    checkPassword(e.target.value);
+  };
+
+  const checkPassword = (password: string) => {
+    if (password.length >= 8) {
+      setIsEightCharacters(true);
+    } else {
+      setIsEightCharacters(false);
+    }
+
+    if (password.match(/[a-z]/)) {
+      setIsLowerCase(true);
+    } else {
+      setIsLowerCase(false);
+    }
+
+    if (password.match(/[A-Z]/)) {
+      setIsUpperCase(true);
+    } else {
+      setIsUpperCase(false);
+    }
+
+    if (password.match(/[0-9]/)) {
+      setIsNumber(true);
+    } else {
+      setIsNumber(false);
+    }
+
+    if (password.match(/[!@#$%^&*]/)) {
+      setIsSpecialCharacter(true);
+    } else {
+      setIsSpecialCharacter(false);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
+    if (
+      !isEightCharacters ||
+      !isLowerCase ||
+      !isUpperCase ||
+      !isNumber ||
+      !isSpecialCharacter
+    ) {
+      setError("Password does not meet the requirements");
+      return;
+    }
     e.preventDefault();
     setIsLoadingButton(
       <Button type="submit" disabled>
@@ -81,9 +134,28 @@ const RegistrationForm: React.FC = () => {
           placeholder="Password"
           id="password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={handlePassowrdChange}
         />
       </div>
+      <span className="flex flex-col text-sm">
+        <ul className="text-gray-400 ml-2">
+          <li className={`${isEightCharacters && "text-green-600"}`}>
+            At least 8 characters
+          </li>
+          <li className={`${isLowerCase && "text-green-600"}`}>
+            At least 1 lowercase letter
+          </li>
+          <li className={`${isUpperCase && "text-green-600"}`}>
+            At least 1 uppercase letter
+          </li>
+          <li className={`${isNumber && "text-green-600"}`}>
+            At least 1 number
+          </li>
+          <li className={`${isSpecialCharacter && "text-green-600"}`}>
+            At least special character
+          </li>
+        </ul>
+      </span>
       <div>
         <Input
           className="w-[300px]"
